@@ -74,7 +74,17 @@ func _fade_out():
 	fadeout.start()
 
 func _fade_finished():
+	randomize()
 	var dropped = money.instance()
 	dropped.position = position
+	var Value  = rand_range(1,3)
+	Value = int(round(Value))
+	dropped.value = Value
+	var cell = rand_range(1,20)
+	cell = int(round(cell))
+	if cell >= 15:
+		dropped.cell = true
+	else:
+		dropped.cell = false
 	get_parent().get_parent().add_child(dropped)
 	queue_free()

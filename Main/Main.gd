@@ -4,8 +4,10 @@ var scene = preload("res://Levels/Level1.tscn")
 onready var player = $Player
 onready var resume = $Player/HBoxContainer/Resume
 onready var quit = $Player/HBoxContainer/Main
-onready var pauselabel = $Player/VBoxContainer/Pause
+onready var buttons = $Player/HBoxContainer
+onready var labels = $Player/VBoxContainer
 onready var weapondisplay = $Player/VBoxContainer/WeaponLabel
+onready var healthdisplay = $Player/VBoxContainer/Health
 var pause_menu_visible = false
 var pause_menu_disabled = true
 
@@ -22,16 +24,15 @@ func _physics_process(delta):
 		pause_menu_disabled = false
 		pause_menu_visible = true
 		weapondisplay.text = str("Weapon damage ", player.damage)
+		healthdisplay.text = str(player.health, " of ", player.healthbar.max_value, " health.")
 		_set_pause_menu()
 		get_tree().paused = true
 
 func _set_pause_menu():
-	weapondisplay.visible = pause_menu_visible
-	pauselabel.visible = pause_menu_visible
-	quit.disabled = pause_menu_disabled
-	quit.visible = pause_menu_visible
-	resume.visible = pause_menu_visible
+	buttons.visible = pause_menu_visible
+	labels.visible = pause_menu_visible
 	resume.disabled = pause_menu_disabled
+	quit.disabled = pause_menu_disabled
 
 func _on_Resume_pressed():
 	get_tree().paused = false
