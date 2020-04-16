@@ -80,9 +80,9 @@ func _fade_finished():
 	var Value  = rand_range(1,3)
 	Value = int(round(Value))
 	dropped.value = Value
-	var cell = rand_range(1,20)
+	var cell = rand_range(1,100)
 	cell = int(round(cell))
-	if cell >= 15:
+	if cell >= 90:
 		dropped.cell = true
 	else:
 		dropped.cell = false
