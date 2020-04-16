@@ -136,6 +136,7 @@ func hit(damage_taken):
 		if health <= 0:
 			state = State.DEAD
 			hide()
+			get_tree().paused = true
 			yield(get_tree().create_timer(1), "timeout")
 			emit_signal("dead")
 

@@ -4,7 +4,7 @@ onready var armswinger = $Arm/AnimationPlayer
 onready var armcollider = $Arm/CollisionShape2D
 onready var arm = $Arm
 onready var timer = $Timer
-var damage = 1
+var damage = 10
 
 func _ready():
 	armswinger.connect("animation_finished", self, "arm_done")

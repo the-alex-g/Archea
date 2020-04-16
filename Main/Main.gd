@@ -44,4 +44,5 @@ func _on_Main_pressed():
 	get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _on_Player_dead():
+	get_tree().paused = false
 	get_tree().change_scene("res://Main/Main Menu.tscn")
