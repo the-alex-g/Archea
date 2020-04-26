@@ -2,19 +2,19 @@ class_name Enemy
 extends Actor
 
 enum State{WALKING, DYING, IDLE, SHOOTING, DEAD}
+onready var collision : CollisionShape2D = $CollisionShape2D
+onready var healthbar : ProgressBar = $ProgressBar
+onready var floor_detector_left : RayCast2D = $Left
+onready var floor_detector_right : RayCast2D = $Right
+onready var sprite : Sprite = $Sprite
+onready var animator : AnimationPlayer = $AnimationPlayer
+onready var fadeout : Tween = $Tween
 var state = State.WALKING
-var left = true
+var left : bool = true
+var money : PackedScene = preload("res://Money/Money.tscn")
+var moving : bool = true
+var health : int = 0
 signal dead
-onready var collision = $CollisionShape2D
-onready var healthbar = $ProgressBar
-onready var floor_detector_left = $Left
-onready var floor_detector_right = $Right
-onready var sprite = $Sprite
-onready var animator = $AnimationPlayer
-onready var fadeout = $Tween
-var money = preload("res://Money/Money.tscn")
-var moving = true
-var health = 0
 
 func _ready():
 	speed.x -= 50

@@ -1,8 +1,8 @@
 extends Enemy
 
-var damage = 5
-onready var shoottimer = $ShootTimer
-var spore = preload("res://Ammo/Ammo.tscn")
+var damage : int = 5
+onready var shoottimer : Timer = $ShootTimer
+var spore : PackedScene = preload("res://Ammo/Ammo.tscn")
 
 func _ready():
 	health = 30

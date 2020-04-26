@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var Damage
+var Damage : int
 
 func _ready():
 	pass

@@ -1,6 +1,6 @@
 extends Enemy
 
-export var damage = 20
+export var damage : int= 20
 
 func _ready():
 	state = State.IDLE

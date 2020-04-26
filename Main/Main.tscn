@@ -8,22 +8,7 @@
 [ext_resource path="res://Enemies/Guytrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Main/HUD.tscn" type="PackedScene" id=8]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node
-
-onready var player = $Player
-onready var skycolor = $ParallaxBackground/ColorRect/AnimationPlayer
-var pause_menu_visible = false
-var pause_menu_disabled = true
-
-func _ready():
-	skycolor.play(\"Fade\")
-
-func _on_Player_dead():
-	yield(get_tree().create_timer(1), \"timeout\")
-	get_tree().change_scene_to(Variables.main_menu)
-"
+[ext_resource path="res://Main/Main.gd" type="Script" id=9]
 
 [sub_resource type="TileSet" id=2]
 0/name = "Tiles.png 0"
@@ -233,7 +218,7 @@ points = PoolVector2Array( 0, 0, 35, 0, 35, 35, 0, 35 )
 
 [node name="Node" type="Node"]
 pause_mode = 1
-script = SubResource( 1 )
+script = ExtResource( 9 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 

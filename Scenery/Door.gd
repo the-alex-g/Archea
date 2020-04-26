@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-onready var sprite = $AnimatedSprite
+onready var sprite : AnimatedSprite = $AnimatedSprite
 
 func hit(damage):
 	sprite.animation = "Open"
