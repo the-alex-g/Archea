@@ -42,6 +42,10 @@ config/name="Archea"
 run/main_scene="res://Main/Main Menu.tscn"
 config/icon="res://Art/Enemy_Shroomman/Shroomman_0.png"
 
+[autoload]
+
+Variables="*res://Singletons/Variables.gd"
+
 [display]
 
 window/size/width=700

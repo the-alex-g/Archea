@@ -2,31 +2,24 @@ class_name Player
 extends Actor
 
 enum State {FALLING, DYING, WALKING, IDLE, DEAD, DODGING}
+onready var sprite : Sprite = $Sprite
+onready var detector : RayCast2D = $RayCast2D
+onready var collision : CollisionShape2D = $CollisionShape2D
+onready var sword  : Area2D= $Sword
+onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
+onready var swinger : AnimationPlayer= $Sword/AnimationPlayer
+onready var swordarmchange : AnimatedSprite = $Sword/AnimatedSprite
+onready var swordcollider : CollisionShape2D = $Sword/Collision
+var swinging : bool = false
 var state = State.IDLE
-const FLOOR_DETECT_DISTANCE = 20.0
-onready var sprite = $Sprite
-onready var detector = $RayCast2D
-onready var collision = $CollisionShape2D
-onready var sword = $Sword
-onready var animatior = $Sprite/AnimationPlayer
-onready var swinger = $Sword/AnimationPlayer
-onready var healthbar = $Sprite2/ProgressBar
-onready var swordarmchange = $Sword/AnimatedSprite
-onready var swordcollider = $Sword/Collision
-onready var moneyvalue = $Label
-export var health = 100
-var swinging = false
-var dodging = false
-var dropping = false
-var money = 0
+var dodging : bool = false
+var dropping : bool = false
 signal dead
-var damage = 10
+const FLOOR_DETECT_DISTANCE = 20.0
 
 func _ready():
-	moneyvalue.text = "0"
 	var camera: Camera2D = $Camera2D                                                                                   
 	camera.custom_viewport = $"../.."
-	healthbar.value = health
 
 func _physics_process(_delta):
 	var direction = get_direction()
@@ -113,7 +106,7 @@ func calculate_move_velocity(
 
 func _on_Sword_body_entered(body):
 	if swinging == true and body.has_method("hit"):
-		body.hit(damage)
+		body.hit(Variables.player_damage)
 
 func _fall_through():
 	set_collision_layer_bit(2,false)
@@ -131,9 +124,8 @@ func _reset_collision():
 
 func hit(damage_taken):
 	if dodging == false:
-		health -= damage_taken
-		healthbar.value = health
-		if health <= 0:
+		Variables.health -= damage_taken
+		if Variables.health <= 0:
 			state = State.DEAD
 			hide()
 			get_tree().paused = true
@@ -151,7 +143,3 @@ func _new_anim():
 	elif state == State.IDLE:
 		next = "Idle"
 	return next
-
-func pickup(value):
-	money += value
-	moneyvalue.text = str(money)

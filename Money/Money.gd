@@ -1,9 +1,9 @@
 extends Area2D
 
-onready var flipper = $AnimationPlayer
-onready var sprite = $Sprite
-export var value = 1
-var cell
+onready var flipper : AnimationPlayer = $AnimationPlayer
+onready var sprite  : Sprite= $Sprite
+export var value : int = 1
+var cell : bool
 
 func _ready():
 	flipper.play("Flip")
@@ -13,12 +13,11 @@ func _ready():
 		sprite.animation = "Coin"
 
 func _on_Area2D_body_entered(body):
-	if body.has_method("pickup"):
+	if body.is_in_group("Player"):
 		if cell == false:
-			body.pickup(value)
+			Variables.score += value
 		else:
-			body.damage += 5
-			body.health += 5
-			body.healthbar.max_value += 5
-			body.healthbar.value = body.health
+			Variables.player_damage += 5
+			Variables.health += 5
+			Variables.max_health += 5
 		queue_free()
