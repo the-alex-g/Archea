@@ -7,7 +7,7 @@ func _ready():
 	$ParallaxBackground/ColorRect/AnimationPlayer.play("Fade")
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://Main/Main.tscn")
+	var _error = get_tree().change_scene("res://Main/Main.tscn")
 
 func _on_Quit_pressed():
 	if already_quitted == false:

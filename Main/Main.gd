@@ -1,11 +1,17 @@
 extends Node
 
-onready var player : KinematicBody2D = $Player
-onready var skycolor : AnimationPlayer = $ParallaxBackground/ColorRect/AnimationPlayer
+onready var _player : KinematicBody2D = $Player
 
 func _ready():
-	skycolor.play("Fade")
+	_load_level()
 
 func _on_Player_dead():
 	get_tree().paused = true
-	get_tree().change_scene_to(Variables.main_menu)
+	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
+
+func _load_level():
+	var _level : PackedScene = load("res://Levels/Level" + str(Variables.level) + ".tscn")
+	var _Level = _level.instance()
+	var _start = _Level.get_node("Start")
+	add_child(_Level)
+	_player.position = _start.global_position

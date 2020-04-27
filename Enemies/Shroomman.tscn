@@ -67,7 +67,7 @@ extents = Vector2( 10, 23.9697 )
 extents = Vector2( 10, 23.9697 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 32.2219, 23.7193 )
+extents = Vector2( 22.9167, 23.7193 )
 
 [node name="ShroomMan" type="KinematicBody2D"]
 collision_layer = 14
@@ -123,7 +123,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
 visible = false
-position = Vector2( -26.5365, 0.751034 )
+position = Vector2( -15.5899, -0.107523 )
 shape = SubResource( 5 )
 
 [node name="RightArea" type="Area2D" parent="."]
@@ -132,7 +132,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
 visible = false
-position = Vector2( 18.2752, 0.250347 )
+position = Vector2( 9.47499, 0.464987 )
 shape = SubResource( 6 )
 
 [node name="Sight" type="Area2D" parent="."]
@@ -141,7 +141,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 visible = false
-position = Vector2( -4.25587, 0 )
+position = Vector2( -2.96803, 0.214642 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]

@@ -9,8 +9,9 @@
 [ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=7]
 [ext_resource path="res://themes/Scenery.tres" type="TileSet" id=8]
 
-[node name="Level1" type="Node"]
+[node name="Level1" type="Node2D"]
 pause_mode = 1
+z_index = -1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
