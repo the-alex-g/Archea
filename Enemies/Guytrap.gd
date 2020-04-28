@@ -4,8 +4,9 @@ export var damage : int= 20
 
 func _ready():
 	state = State.IDLE
-	health = 50
+	health = round((Variables.max_health/10)*5)
 	healthbar.value = health
+	healthbar.max_value = health
 
 func _on_Sighted_body_exited(body):
 	if state != State.DEAD and state != State.DYING:

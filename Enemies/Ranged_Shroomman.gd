@@ -5,8 +5,9 @@ onready var shoottimer : Timer = $ShootTimer
 var spore : PackedScene = preload("res://Ammo/Ammo.tscn")
 
 func _ready():
-	health = 30
+	health = round((Variables.max_health/10)*3)
 	healthbar.value = health
+	healthbar.max_value = health
 
 func _on_ShootTimer_timeout():
 	if state != State.DEAD and state != State.DYING:

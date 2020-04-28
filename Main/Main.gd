@@ -10,7 +10,7 @@ func _on_Player_dead():
 	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():
-	var _level : PackedScene = load("res://Levels/Level" + str(Variables.level) + ".tscn")
+	var _level : PackedScene = load("res://Levels/In_between.tscn")#("res://Levels/Level" + str(Variables.level) + ".tscn")
 	var _Level = _level.instance()
 	var _start = _Level.get_node("Start")
 	add_child(_Level)

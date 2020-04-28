@@ -8,8 +8,9 @@ var damage : int = 10
 
 func _ready():
 	_armswinger.connect("animation_finished", self, "arm_done")
-	health = 40
+	health = round((Variables.max_health/10)*4)
 	healthbar.value = health
+	healthbar.max_value = health
 
 func _physics_process(delta):
 	if state != State.DEAD and state != State.DYING:
@@ -41,7 +42,7 @@ func _on_Timer_timeout():
 			_armswinger.play("Right")
 		_timer.stop()
 
-func arm_done():
+func arm_done(_anim_name):
 	if state != State.DEAD and state != State.DYING:
 		_armcollider.disabled = true
 		_timer.start()

@@ -18,7 +18,7 @@ signal dead
 const FLOOR_DETECT_DISTANCE = 20.0
 
 func _ready():
-	var camera: Camera2D = $Camera2D                                                                                   
+	var camera: Camera2D = $Camera2D
 	camera.custom_viewport = $"../.."
 
 func _physics_process(_delta):
