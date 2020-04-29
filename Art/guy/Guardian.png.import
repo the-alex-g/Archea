@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Banners.png-cfbc3d1ed2fc3af09b762851d7611eeb.stex"
+path="res://.import/Guardian.png-decec4c0d30a1b17e7d6c82e4abc9971.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Banners/Banners.png"
-dest_files=[ "res://.import/Banners.png-cfbc3d1ed2fc3af09b762851d7611eeb.stex" ]
+source_file="res://Art/guy/Guardian.png"
+dest_files=[ "res://.import/Guardian.png-decec4c0d30a1b17e7d6c82e4abc9971.stex" ]
 
 [params]
 

@@ -7,9 +7,7 @@ onready var detector : RayCast2D = $RayCast2D
 onready var collision : CollisionShape2D = $CollisionShape2D
 onready var sword  : Area2D= $Sword
 onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
-onready var swinger : AnimationPlayer= $Sword/AnimationPlayer
-onready var swordarmchange : AnimatedSprite = $Sword/AnimatedSprite
-onready var swordcollider : CollisionShape2D = $Sword/Collision
+onready var staffcollider : CollisionShape2D = $Staff_Collision
 var swinging : bool = false
 var state = State.IDLE
 var dodging : bool = false
@@ -41,14 +39,10 @@ func _physics_process(_delta):
 				dropping = false
 	if Input.is_action_just_pressed("swing"):
 		swinging = true
-		swordcollider.disabled = false
-		if sprite.scale.x == 1:
-			swinger.play("Swing_r")
-		elif sprite.scale.x == -1:
-			swinger.play("Swing_l")
+		staffcollider.disabled = false
 		yield(get_tree().create_timer(0.5), 'timeout')
 		swinging = false
-		swordcollider.disabled = true
+		staffcollider.disabled = true
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
 		yield(get_tree().create_timer(0.25), 'timeout')
@@ -61,7 +55,6 @@ func _physics_process(_delta):
 	sword.scale.x = sprite.scale.x
 	if _velocity.x != 0:
 		sprite.scale.x = 1 if _velocity.x > 0 else -1
-		swordarmchange.animation = "Sword_Left" if sprite.scale.x == -1 else "Sword_Right"
 		if is_on_platform and dodging == false:
 			state = State.WALKING
 	elif _velocity.x == 0:

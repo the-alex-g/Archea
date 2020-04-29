@@ -1,41 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Player/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/guy/Guardian.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Art/guy/guy.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dodging"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2, 0 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "Falling"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -46,7 +15,146 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 12 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Falling"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Falling_Shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Falling_Swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 8, 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Idle_Shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Idle_Swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 6, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Jumping"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Jumping_Shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 11 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Jumping_Swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 7, 4 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -60,17 +168,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 2, 1, 4 ]
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Walking_Shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "Swing_l"
+resource_name = "Walking_Swing"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -78,27 +201,14 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -90.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Swing_r"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0, 0.0 ]
+"update": 1,
+"values": [ 3, 6, 3 ]
 }
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 12.5394, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 7.23462, 28.6062 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -110,23 +220,31 @@ collision_mask = 230
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-vframes = 2
+texture = ExtResource( 1 )
+vframes = 5
 hframes = 3
-frame = 2
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/Dodging = SubResource( 1 )
 anims/Falling = SubResource( 2 )
+anims/Falling_Shoot = SubResource( 11 )
+anims/Falling_Swing = SubResource( 8 )
 anims/Idle = SubResource( 3 )
+anims/Idle_Shoot = SubResource( 14 )
+anims/Idle_Swing = SubResource( 15 )
+anims/Jumping = SubResource( 9 )
+anims/Jumping_Shoot = SubResource( 12 )
+anims/Jumping_Swing = SubResource( 10 )
 anims/Walking = SubResource( 4 )
+anims/Walking_Shoot = SubResource( 13 )
+anims/Walking_Swing = SubResource( 5 )
 
-[node name="Sword" parent="." instance=ExtResource( 1 )]
-position = Vector2( -0.475655, -6.89697 )
+[node name="Staff" type="StaticBody2D" parent="Sprite"]
 
-[node name="AnimationPlayer" parent="Sword" index="2"]
-anims/Swing_l = SubResource( 5 )
-anims/Swing_r = SubResource( 6 )
+[node name="Staff_Collision" type="CollisionShape2D" parent="Sprite/Staff"]
+position = Vector2( 28.3462, -1.42166 )
+shape = SubResource( 7 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
@@ -135,12 +253,9 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0.531955, 0.0802565 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
-[connection signal="body_entered" from="Sword" to="." method="_on_Sword_body_entered"]
-
-[editable path="Sword"]
