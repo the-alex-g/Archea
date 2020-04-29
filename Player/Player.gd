@@ -7,7 +7,7 @@ onready var detector : RayCast2D = $RayCast2D
 onready var collision : CollisionShape2D = $CollisionShape2D
 onready var sword  : Area2D= $Sword
 onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
-onready var staffcollider : CollisionShape2D = $Staff_Collision
+onready var staffcollider : CollisionShape2D = $Sprite/Staff/Staff_Collision
 var swinging : bool = false
 var state = State.IDLE
 var dodging : bool = false
@@ -52,7 +52,6 @@ func _physics_process(_delta):
 	_velocity = move_and_slide(
 		_velocity, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 	)
-	sword.scale.x = sprite.scale.x
 	if _velocity.x != 0:
 		sprite.scale.x = 1 if _velocity.x > 0 else -1
 		if is_on_platform and dodging == false:
