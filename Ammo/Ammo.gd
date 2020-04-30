@@ -5,7 +5,7 @@ onready var timer = $Timer
 var left = false
 var damage = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if left == false:
 		position.x += 5
 	else:

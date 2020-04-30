@@ -16,7 +16,7 @@ func _ready():
 	_set_pause_menu()
 	
 
-func _process(delta):
+func _process(_delta):
 	_healthbar.value = Variables.health
 	_healthbar.max_value = Variables.max_health
 	if Input.is_action_just_pressed("escape"):

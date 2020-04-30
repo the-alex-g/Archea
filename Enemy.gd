@@ -19,8 +19,8 @@ signal dead
 func _ready():
 	speed.x -= 50
 	_velocity.x = -speed.x
-	animator.connect("animation_finished", self, "_animation_finished")
-	fadeout.connect("tween_all_completed", self, "_fade_finished")
+	var _error = animator.connect("animation_finished", self, "_animation_finished")
+	var _error2 = fadeout.connect("tween_all_completed", self, "_fade_finished")
 
 func _physics_process(_delta):
 	left = true if sprite.scale.x == 1 else false
@@ -70,8 +70,8 @@ func _animation_finished(anim_name):
 		_fade_out()
 
 func _fade_out():
-	fadeout.interpolate_property(self, "modulate", null, Color(1, 1, 1, 0), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	fadeout.start()
+	var _error = fadeout.interpolate_property(self, "modulate", null, Color(1, 1, 1, 0), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	var _error2 = fadeout.start()
 
 func _fade_finished():
 	randomize()

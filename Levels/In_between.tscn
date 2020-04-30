@@ -118,7 +118,7 @@ for 25"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="Health" to="." method="_on_Health_area_entered"]
+[connection signal="body_entered" from="Health" to="." method="_on_Health_body_entered"]
 [connection signal="body_exited" from="Health" to="." method="_on_Health_body_exited"]
 [connection signal="body_entered" from="Damage" to="." method="_on_Damage_body_entered"]
 [connection signal="body_exited" from="Damage" to="." method="_on_Damage_body_exited"]

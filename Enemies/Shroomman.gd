@@ -7,27 +7,27 @@ onready var _timer :Timer = $Timer
 var damage : int = 10
 
 func _ready():
-	_armswinger.connect("animation_finished", self, "arm_done")
-	health = round((Variables.max_health/10)*4)
+	var _error = _armswinger.connect("animation_finished", self, "arm_done")
+	health = (Variables.max_health/10)*4
 	healthbar.value = health
 	healthbar.max_value = health
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if state != State.DEAD and state != State.DYING:
 		_arm.scale.x = sprite.scale.x
 
-func _on_Sight_body_exited(body):
+func _on_Sight_body_exited(_body):
 	if state != State.DEAD and state != State.DYING:
 		state = State.WALKING
 		_timer.stop()
 
-func _on_RightArea_body_entered(body):
+func _on_RightArea_body_entered(_body):
 	if state != State.DEAD and state != State.DYING:
 		state = State.IDLE
 		sprite.scale.x = -1
 		_timer.start()
 
-func _on_LeftArea_body_entered(body):
+func _on_LeftArea_body_entered(_body):
 	if state != State.DEAD and state != State.DYING:
 		state = State.IDLE
 		sprite.scale.x = 1
