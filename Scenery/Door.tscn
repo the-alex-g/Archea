@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Art/Door/Door_0.png" type="Texture" id=1]
-[ext_resource path="res://Art/Door/Door_1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Doors/Door_0.png" type="Texture" id=1]
+[ext_resource path="res://Art/Doors/Door_1.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/Door.gd" type="Script" id=3]
 
 [sub_resource type="SpriteFrames" id=1]

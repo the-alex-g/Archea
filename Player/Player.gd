@@ -148,6 +148,6 @@ func _new_anim(_velocity):
 		next = "Idle" + _attack
 	if _velocity.y < 0:
 		next = "Jumping" + _attack
-	elif _velocity.y > 0:
+	elif _velocity.y > 0.1:
 		next = "Falling" + _attack
 	return next
