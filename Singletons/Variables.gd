@@ -1,6 +1,6 @@
 extends Node
 
-var ranged : bool = true#false
+var ranged : bool = false
 var health : int = 100
 var score : int = 0
 var player_damage : int = 10

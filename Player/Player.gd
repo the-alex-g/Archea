@@ -5,7 +5,6 @@ enum State {FALLING, DYING, WALKING, IDLE, DEAD, DODGING}
 onready var sprite : Sprite = $Sprite
 onready var detector : RayCast2D = $RayCast2D
 onready var collision : CollisionShape2D = $CollisionShape2D
-onready var sword  : Area2D= $Sword
 onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
 onready var staffcollider : CollisionShape2D = $Sprite/Staff/Staff_Collision
 var swinging : bool = false
@@ -109,7 +108,7 @@ func calculate_move_velocity(
 		velocity.y = 0.0
 	return velocity
 
-func _on_Sword_body_entered(body):
+func _on_Staff_body_entered(body):
 	if swinging == true and body.has_method("hit"):
 		body.hit(Variables.player_damage)
 
