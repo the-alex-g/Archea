@@ -5,6 +5,7 @@ onready var _visibility : Node2D = $Visibility
 onready var _resume : Button = $Visibility/HBoxContainer/Resume
 onready var _main_button : Button = $Visibility/HBoxContainer/Main
 onready var _score : Label = $Visibility/VBoxContainer/Score
+onready var _health : Label = $Visibility/VBoxContainer/Health
 onready var _damage : Label = $Visibility/VBoxContainer/Damage
 
 var _visible : bool = false
@@ -24,6 +25,7 @@ func _process(delta):
 		get_tree().paused = true
 		_set_pause_menu()
 		_score.text = "Money:" + str(Variables.score)
+		_health.text = "Health: " + str(Variables.health) + " of " + str(Variables.max_health)
 		_damage.text = "Sword damage:" + str(Variables.player_damage)
 
 func _on_Resume_pressed():

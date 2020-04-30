@@ -91,7 +91,7 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="Visibility/VBoxContainer"]
-margin_right = 48.0
+margin_right = 51.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
 text = "money"
@@ -101,10 +101,20 @@ __meta__ = {
 
 [node name="Damage" type="Label" parent="Visibility/VBoxContainer"]
 margin_top = 25.0
-margin_right = 48.0
+margin_right = 51.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 2 )
 text = "damage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="Visibility/VBoxContainer"]
+margin_top = 50.0
+margin_right = 51.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 2 )
+text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -10,6 +10,7 @@ onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
 onready var staffcollider : CollisionShape2D = $Sprite/Staff/Staff_Collision
 var swinging : bool = false
 var state = State.IDLE
+var _attack : String = ""
 var dodging : bool = false
 var dropping : bool = false
 signal dead
@@ -38,11 +39,23 @@ func _physics_process(_delta):
 				_reset_collision()
 				dropping = false
 	if Input.is_action_just_pressed("swing"):
-		swinging = true
-		staffcollider.disabled = false
-		yield(get_tree().create_timer(0.5), 'timeout')
-		swinging = false
-		staffcollider.disabled = true
+		if not swinging:
+			swinging = true
+			_attack = "_Swing"
+			staffcollider.disabled = false
+			yield(get_tree().create_timer(0.5), 'timeout')
+			_attack = ""
+			swinging = false
+			staffcollider.disabled = true
+	if Input.is_action_just_pressed("ranged_attack"):
+		if not swinging and Variables.ranged:
+			swinging = true
+			_attack = "_Shoot"
+			staffcollider.disabled = false
+			yield(get_tree().create_timer(0.5), 'timeout')
+			_attack = ""
+			swinging = false
+			staffcollider.disabled = true
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
 		yield(get_tree().create_timer(0.25), 'timeout')
@@ -72,7 +85,7 @@ func _physics_process(_delta):
 		set_collision_layer_bit(2,true)
 		set_collision_mask_bit(1, true)
 		set_collision_mask_bit(2, true)
-	var next_anim = _new_anim()
+	var next_anim = _new_anim(_velocity)
 	if next_anim != animatior.current_animation:
 		animatior.play(next_anim)
 
@@ -124,14 +137,18 @@ func hit(damage_taken):
 			yield(get_tree().create_timer(1), "timeout")
 			emit_signal("dead")
 
-func _new_anim():
-	var next = ""
+func _new_anim(_velocity):
+	var next : String = ""
 	if state == State.DODGING:
-		next = "Dodging"
+		next = "Dodging" 
 	elif state == State.WALKING:
-		next = "Walking"
+		next = "Walking" + _attack
 	elif state == State.FALLING:
-		next = "Falling"
+		next = "Falling" + _attack
 	elif state == State.IDLE:
-		next = "Idle"
+		next = "Idle" + _attack
+	if _velocity.y < 0:
+		next = "Jumping" + _attack
+	elif _velocity.y > 0:
+		next = "Falling" + _attack
 	return next
