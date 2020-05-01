@@ -147,7 +147,7 @@ shape = SubResource( 7 )
 [node name="Timer" type="Timer" parent="."]
 [connection signal="dead" from="." to="." method="_on_ShroomMan_dead"]
 [connection signal="body_entered" from="Arm" to="." method="_on_Arm_body_entered"]
-[connection signal="animation_finished" from="Arm/AnimationPlayer" to="." method="_on_Arm_done"]
+[connection signal="animation_finished" from="Arm/AnimationPlayer" to="." method="_on_arm_done"]
 [connection signal="body_entered" from="LeftArea" to="." method="_on_LeftArea_body_entered"]
 [connection signal="body_entered" from="RightArea" to="." method="_on_RightArea_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_Sight_body_exited"]

@@ -7,9 +7,11 @@ onready var detector : RayCast2D = $RayCast2D
 onready var collision : CollisionShape2D = $CollisionShape2D
 onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
 onready var staffcollider : CollisionShape2D = $Sprite/Staff/Staff_Collision
+onready var dodge_timer : Timer = $DodgeTimer
 var swinging : bool = false
 var state = State.IDLE
 var _attack : String = ""
+var dodgable : bool = true
 var dodging : bool = false
 var dropping : bool = false
 signal dead
@@ -23,11 +25,16 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	var is_jumping
 	if Input.is_action_just_pressed("dodge"):
-		dodging = true
-		state = State.DODGING
-		yield(get_tree().create_timer(0.5), 'timeout')
-		dodging = false
-		state = State.IDLE
+		if not dodging and dodgable:
+			dodging = true
+			state = State.DODGING
+			dodge()
+			yield(get_tree().create_timer(0.5), 'timeout')
+			dodging = false
+			dodge_timer.start()
+			dodgable = false
+			undodge()
+			state = State.IDLE
 	if Input.is_action_just_pressed("ui_down"):
 		if detector.is_colliding():
 			var thing_hit = detector.get_collider()
@@ -73,17 +80,12 @@ func _physics_process(_delta):
 	if _velocity.y != 0:
 		if is_jumping == false:
 			state = State.FALLING
-	if dodging and state != State.DODGING:
+	if dodging:
 		state = State.DODGING
-		set_collision_layer_bit(1,false)
-		set_collision_layer_bit(2,false)
-		set_collision_mask_bit(1, false)
-		set_collision_mask_bit(2, false)
-	elif dodging == false and dropping == false:
-		set_collision_layer_bit(1,true)
-		set_collision_layer_bit(2,true)
-		set_collision_mask_bit(1, true)
-		set_collision_mask_bit(2, true)
+		if sprite.scale.x == 1:
+			move_and_slide(Vector2(200, 0), Vector2.UP)
+		else:
+			move_and_slide(Vector2(-200, 0), Vector2.UP)
 	var next_anim = _new_anim(_velocity)
 	if next_anim != animatior.current_animation:
 		animatior.play(next_anim)
@@ -101,11 +103,12 @@ func calculate_move_velocity(
 		is_jumping
 	):
 	var velocity = linear_velocity
-	velocity.x = speed.x * direction.x
-	if direction.y != 0.0:
-		velocity.y = speed.y * direction.y
-	if is_jumping == false:
-		velocity.y = 0.0
+	if not dodging:
+		velocity.x = speed.x * direction.x
+		if direction.y != 0.0:
+			velocity.y = speed.y * direction.y
+		if is_jumping == false:
+			velocity.y = 0.0
 	return velocity
 
 func _on_Staff_body_entered(body):
@@ -151,3 +154,19 @@ func _new_anim(_velocity):
 	elif _velocity.y > 0.1:
 		next = "Falling" + _attack
 	return next
+
+func undodge():
+	set_collision_layer_bit(1,true)
+	set_collision_layer_bit(2,true)
+	set_collision_mask_bit(1, true)
+	set_collision_mask_bit(2, true)
+
+func dodge():
+	state = State.DODGING
+	set_collision_layer_bit(1,false)
+	set_collision_layer_bit(2,false)
+	set_collision_mask_bit(1, false)
+	set_collision_mask_bit(2, false)
+
+func _on_DodgeTimer_timeout():
+	dodgable = true

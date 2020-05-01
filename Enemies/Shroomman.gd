@@ -42,7 +42,7 @@ func _on_Timer_timeout():
 			_armswinger.play("Right")
 		_timer.stop()
 
-func arm_done(_anim_name):
+func _on_arm_done(_anim_name):
 	if state != State.DEAD and state != State.DYING:
 		_armcollider.disabled = true
 		_timer.start()

@@ -140,6 +140,8 @@ anims/Walk = SubResource( 7 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="HitArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 visible = false
