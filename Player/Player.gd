@@ -82,10 +82,7 @@ func _physics_process(_delta):
 			state = State.FALLING
 	if dodging:
 		state = State.DODGING
-		if sprite.scale.x == 1:
-			move_and_slide(Vector2(200, 0), Vector2.UP)
-		else:
-			move_and_slide(Vector2(-200, 0), Vector2.UP)
+		var _error = move_and_slide(Vector2(sprite.scale.x*200, 0), Vector2.UP)
 	var next_anim = _new_anim(_velocity)
 	if next_anim != animatior.current_animation:
 		animatior.play(next_anim)
