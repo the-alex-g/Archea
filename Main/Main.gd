@@ -1,10 +1,12 @@
 extends Node
 
 onready var _player : KinematicBody2D = $Player
+onready var _music : AudioStreamPlayer = $Music
 onready var _doot : Area2D = $Level_Door
 var _between : bool = false
 
 func _ready():
+	_music.play()
 	_load_level()
 
 func _on_Player_dead():
@@ -15,7 +17,8 @@ func _load_level():
 	var _level : PackedScene
 	var _Level : Node
 	if _Level != null:
-		_Level.queue_free()
+		pass
+		#_Level.queue_free()
 	if not _between:
 		_level = load("res://Levels/Level" + str(Variables.level) + ".tscn")
 	if _between:
