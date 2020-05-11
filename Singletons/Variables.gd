@@ -2,6 +2,7 @@ extends Node
 
 var ranged : bool = false
 var health : int = 100
+var type : String = ""
 var score : int = 0
 var player_damage : int = 10
 var max_health : int = 100

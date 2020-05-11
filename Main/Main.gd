@@ -16,6 +16,7 @@ func _on_Player_dead():
 	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():
+	Variables.type = "_Shroom"
 	var _level : PackedScene
 	if _not_first == true:
 		_last.queue_free()
@@ -31,7 +32,6 @@ func _load_level():
 	add_child(_Level)
 	_player.position = _start.global_position
 	_door.position = _exit.global_position
-	
 
 func _on_Level_Door_entered():
 	_between = !_between

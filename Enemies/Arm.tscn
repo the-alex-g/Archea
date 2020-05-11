@@ -17,7 +17,7 @@ animations = [ {
 } ]
 
 [sub_resource type="Animation" id=2]
-resource_name = "Left"
+resource_name = "Left_Shroom"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -33,7 +33,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Right"
+resource_name = "Right_Shroom"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -66,8 +66,8 @@ animation = "Purple"
 offset = Vector2( -2.8753, 24.9062 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Left = SubResource( 2 )
-anims/Right = SubResource( 3 )
+anims/Left_Shroom = SubResource( 2 )
+anims/Right_Shroom = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -9.61833, 6.82863 )

@@ -2,12 +2,15 @@
 
 [ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Enemies/Shroomman.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Ranged_Shroomman.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Melee.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Ranged.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/Guytrap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/FallTrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=7]
 [ext_resource path="res://themes/Scenery.tres" type="TileSet" id=8]
+
+
+
 
 [node name="Level1" type="Node2D"]
 pause_mode = 1

@@ -51,14 +51,14 @@ func hit(damage):
 func get_animation():
 	var new_anim = ""
 	if state == State.WALKING:
-		new_anim = "Walk"
+		new_anim = "Walk" + Variables.type
 	elif state == State.IDLE:
-		new_anim = "Idle"
+		new_anim = "Idle" + Variables.type
 	elif state == State.SHOOTING:
-		new_anim = "Shoot"
+		new_anim = "Shoot" + Variables.type
 	elif state == State.DYING:
 		collision.disabled = true
-		new_anim = "Die"
+		new_anim = "Die" + Variables.type
 		emit_signal("dead")
 	return new_anim
 
