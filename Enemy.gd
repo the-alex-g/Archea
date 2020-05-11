@@ -63,9 +63,9 @@ func get_animation():
 	return new_anim
 
 func _animation_finished(anim_name):
-	if anim_name == "Shoot":
+	if anim_name == "Shoot" + Variables.type:
 		state = State.IDLE
-	elif anim_name == "Die":
+	elif anim_name == "Die" + Variables.type:
 		state = State.DEAD
 		_fade_out()
 

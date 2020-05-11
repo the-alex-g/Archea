@@ -5,6 +5,7 @@ onready var _visibility : Node2D = $Visibility
 onready var _resume : Button = $Visibility/HBoxContainer/Resume
 onready var _main_button : Button = $Visibility/HBoxContainer/Main
 onready var _score : Label = $Visibility/VBoxContainer/Score
+onready var _money : Label = $Money
 onready var _health : Label = $Visibility/VBoxContainer/Health
 onready var _damage : Label = $Visibility/VBoxContainer/Damage
 
@@ -17,6 +18,7 @@ func _ready():
 	
 
 func _process(_delta):
+	_money.text = str(Variables.score)
 	_healthbar.value = Variables.health
 	_healthbar.max_value = Variables.max_health
 	if Input.is_action_just_pressed("escape"):

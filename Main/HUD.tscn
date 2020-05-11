@@ -118,5 +118,13 @@ text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Money" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Money"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Visibility/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Visibility/HBoxContainer/Main" to="." method="_on_Main_pressed"]

@@ -16,7 +16,7 @@ func _process(_delta):
 		elif _get_damage and Variables.score >= 15:
 			Variables.player_damage += 5
 			Variables.score -= 15
-		elif _get_ranged and Variables.score >= 25:
+		elif _get_ranged and Variables.score >= 25 and not Variables.ranged: 
 			Variables.ranged = true
 			Variables.score -= 25
 
