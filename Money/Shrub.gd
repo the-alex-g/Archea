@@ -4,7 +4,7 @@ onready var _fadeout : Tween = $Tween
 var _colliding : bool = false
 var _money : PackedScene= load("res://Money/Money.tscn")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("swing") or Input.is_action_just_pressed("select") or Input.is_action_just_pressed("ranged_attack"):
 		if _colliding:
 			randomize()
@@ -28,8 +28,8 @@ func _physics_process(delta):
 func _on_Tween_tween_all_completed():
 	queue_free()
 
-func _on_Shrub_body_entered(body):
+func _on_Shrub_body_entered(_body):
 	_colliding = true
 
-func _on_Shrub_body_exited(body):
+func _on_Shrub_body_exited(_body):
 	_colliding = false
