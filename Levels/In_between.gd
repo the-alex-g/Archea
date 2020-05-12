@@ -4,9 +4,6 @@ var _get_health : bool = false
 var _get_damage : bool = false
 var _get_ranged : bool = false
 
-func _ready():
-	pass # Replace with function body.
-
 func _process(_delta):
 	if Input.is_action_just_pressed("select"):
 		if _get_health and Variables.score >= 10:

@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 onready var flipper : AnimationPlayer = $AnimationPlayer
 onready var sprite  : Sprite= $Sprite
@@ -6,9 +6,11 @@ export var value : int = 1
 var cell : bool
 
 func _ready():
+	randomize()
+	apply_impulse(Vector2(0,0), Vector2(rand_range(-100,100),rand_range(100,200)))
 	flipper.play("Flip")
 	if cell == true:
-		sprite.animation = "cell"
+		sprite.animation = "Cell"
 	else:
 		sprite.animation = "Coin"
 
