@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Money/Shrub.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Melee.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/Ranged.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=5]
@@ -116,11 +117,14 @@ position = Vector2( -324.225, 1234.36 )
 [node name="RangedEnemy5" parent="Permanents" instance=ExtResource( 4 )]
 position = Vector2( -635.045, 468.105 )
 
+[node name="Area2D" parent="Permanents" instance=ExtResource( 2 )]
+position = Vector2( -70, 70 )
+
 [node name="Working" type="Node2D" parent="."]
-position = Vector2( -447.258, 1199.83 )
+position = Vector2( -105, 70 )
 
 [node name="Start" type="Position2D" parent="."]
-position = Vector2( -1049.11, 67.8303 )
+position = Vector2( -105, 70 )
 
 [node name="Exit" type="Position2D" parent="."]
 position = Vector2( -634.259, 1018.92 )
