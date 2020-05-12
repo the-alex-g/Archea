@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Archea"
 run/main_scene="res://Main/Main Menu.tscn"
-config/icon="res://Art/Enemy_Shroomman/Shroomman_0.png"
+config/icon="res://Art/Shroomman_0.png"
 
 [autoload]
 

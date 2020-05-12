@@ -23,5 +23,6 @@ func _on_Left_body_entered(_body):
 		speed.x = -speed.x
 
 func _on_HitArea_body_entered(body):
-	if body.has_method("hit"):
-		body.hit(damage)
+	if state != State.DEAD and state != State.DYING:
+		if body.has_method("hit"):
+			body.hit(damage)

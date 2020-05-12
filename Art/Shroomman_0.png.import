@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shroomman_ranged_4.png-8162c8562f2a8a99eb40e72466232696.stex"
+path="res://.import/Shroomman_0.png-3c728c5e2cc52572c9ab9af980ca8d5c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Enemy_Shroomman_Ranged/Shroomman_ranged_4.png"
-dest_files=[ "res://.import/Shroomman_ranged_4.png-8162c8562f2a8a99eb40e72466232696.stex" ]
+source_file="res://Art/Shroomman_0.png"
+dest_files=[ "res://.import/Shroomman_0.png-3c728c5e2cc52572c9ab9af980ca8d5c.stex" ]
 
 [params]
 
