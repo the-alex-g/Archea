@@ -24,6 +24,7 @@ func _load_level():
 		_last.queue_free()
 	if not _between:
 		_level = load("res://Levels/Level" + str(Variables.level) + ".tscn")
+		Variables.level += 1
 	if _between:
 		_level = load("res://Levels/In_between.tscn")
 	var _Level : Node = _level.instance()

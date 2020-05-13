@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=2]
+[ext_resource path="res://themes/Scenery.tres" type="TileSet" id=3]
+
+[node name="Tiles" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 258
+collision_mask = 258
+format = 1
+
+[node name="JumpThrough" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 260
+collision_mask = 260
+format = 1
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 0
+collision_mask = 0
+format = 1

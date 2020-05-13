@@ -94,6 +94,8 @@ __meta__ = {
 margin_right = 51.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "money"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,6 +106,8 @@ margin_top = 25.0
 margin_right = 51.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "damage"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,6 +118,8 @@ margin_top = 50.0
 margin_right = 51.0
 margin_bottom = 71.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -122,6 +128,9 @@ __meta__ = {
 [node name="Money" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Money"
 __meta__ = {
 "_edit_use_anchors_": false

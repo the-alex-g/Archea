@@ -6,7 +6,6 @@ signal entered
 func _process(_delta):
 	if Input.is_action_just_pressed("select"):
 		if _ready:
-			Variables.level += 1
 			emit_signal("entered")
 
 func _on_Level_Door_body_entered(_body):
