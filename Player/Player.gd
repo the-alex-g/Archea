@@ -8,6 +8,7 @@ onready var collision : CollisionShape2D = $CollisionShape2D
 onready var animatior : AnimationPlayer = $Sprite/AnimationPlayer
 onready var staffcollider : CollisionShape2D = $Sprite/Staff/Staff_Collision
 onready var dodge_timer : Timer = $DodgeTimer
+onready var stafftip : Position2D = $Sprite/Stafftip
 var swinging : bool = false
 var state = State.IDLE
 var _attack : String = ""
@@ -57,11 +58,19 @@ func _physics_process(_delta):
 		if not swinging and Variables.ranged:
 			swinging = true
 			_attack = "_Shoot"
-			staffcollider.disabled = false
+			var _magic : PackedScene = load("res://Ammo/Ammo.tscn")
+			var _Magic : Node = _magic.instance()
+			_Magic.good = true
+			_Magic.position = stafftip.global_position
+			_Magic.damage = int(round(Variables.player_damage/2))
+			if sprite.scale.x == 1:
+				_Magic.left = false
+			else:
+				_Magic.left = true
+			get_parent().add_child(_Magic)
 			yield(get_tree().create_timer(0.5), 'timeout')
 			_attack = ""
 			swinging = false
-			staffcollider.disabled = true
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
 		yield(get_tree().create_timer(0.25), 'timeout')

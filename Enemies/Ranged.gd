@@ -15,6 +15,9 @@ func _on_ShootTimer_timeout():
 		ammo.position = position
 		ammo.left = left
 		ammo.damage = damage
+		ammo.good = false
+		#ammo.set_collision_layer_bit(3,false)
+		#ammo.set_collision_layer_bit(3,false)
 		state = State.SHOOTING
 		get_parent().add_child(ammo)
 

@@ -1,9 +1,9 @@
 class_name Ammo
-extends Node2D
+extends Area2D
 
-onready var timer = $Timer
-var left = false
-var damage = 0
+var left : bool = false
+var good : bool
+var damage : int = 0
 
 func _physics_process(_delta):
 	if left == false:
@@ -13,11 +13,12 @@ func _physics_process(_delta):
 	update()
 
 func _on_Ammo_body_entered(body):
-	if body.name == "Player":
+	if body.is_in_group("Player") and not good:
 		if body.dodging == false:
 			body.hit(damage)
 			queue_free()
-	else:
+	elif body.is_in_group("Enemies") and good:
+		body.hit(damage)
 		queue_free()
 
 func _on_Timer_timeout():
