@@ -21,7 +21,7 @@ tile_set = ExtResource( 8 )
 cell_size = Vector2( 35, 35 )
 collision_layer = 0
 format = 1
-tile_data = PoolIntArray( 196580, 0, 0 )
+tile_data = PoolIntArray( 196580, 0, 0, 131074, 10, 0 )
 
 [node name="TileMap" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 1 )

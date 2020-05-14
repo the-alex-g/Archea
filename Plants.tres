@@ -4,7 +4,7 @@
 code = "shader_type canvas_item;
 
 void vertex(){
-	VERTEX.x += abs(sin(TIME))*10.0;
+	VERTEX += vec2(abs(sin(TIME))*(1.0-UV.y),abs(sin(TIME))*0.5*(1.0-UV.y))*15.0;
 }"
 
 [resource]
