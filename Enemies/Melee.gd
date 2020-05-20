@@ -12,22 +12,22 @@ func _ready():
 	healthbar.max_value = health
 
 func _physics_process(_delta):
-	if state != State.DEAD and state != State.DYING:
+	if alive:
 		_arm.scale.x = sprite.scale.x
 
 func _on_Sight_body_exited(_body):
-	if state != State.DEAD and state != State.DYING:
+	if alive:
 		state = State.WALKING
 		_timer.stop()
 
 func _on_RightArea_body_entered(_body):
-	if state != State.DEAD and state != State.DYING:
+	if alive:
 		state = State.IDLE
 		sprite.scale.x = -1
 		_timer.start()
 
 func _on_LeftArea_body_entered(_body):
-	if state != State.DEAD and state != State.DYING:
+	if alive:
 		state = State.IDLE
 		sprite.scale.x = 1
 		_timer.start()
