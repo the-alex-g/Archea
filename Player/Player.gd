@@ -62,7 +62,7 @@ func _physics_process(_delta):
 			var _Magic : Node = _magic.instance()
 			_Magic.good = true
 			_Magic.position = stafftip.global_position
-			_Magic.damage = int(round(Variables.player_damage/2))
+			_Magic.damage = int(round(Variables.player_damage/2.0))
 			if sprite.scale.x == 1:
 				_Magic.left = false
 			else:

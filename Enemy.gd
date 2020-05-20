@@ -14,6 +14,7 @@ var left : bool = true
 var money : PackedScene = preload("res://Money/Money.tscn")
 var moving : bool = true
 var health : int = 0
+var alive :bool = true
 signal dead
 
 func _ready():
@@ -28,6 +29,8 @@ func _physics_process(_delta):
 		_velocity = calculate_move_velocity(_velocity)
 		_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 		sprite.scale.x = 1 if _velocity.x < 0 else -1
+	if state == State.DEAD or state == State.DYING:
+		alive = false
 	var animation = get_animation()
 	if animation != animator.current_animation:
 		animator.play(animation)

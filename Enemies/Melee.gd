@@ -7,8 +7,7 @@ onready var _timer :Timer = $Timer
 var damage : int = 10
 
 func _ready():
-	var _error = _armswinger.connect("animation_finished", self, "arm_done")
-	health = (Variables.max_health/10)*4
+	health = int(round((Variables.max_health/10.0)*4))
 	healthbar.value = health
 	healthbar.max_value = health
 
