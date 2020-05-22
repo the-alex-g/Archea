@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var _fadeout : Tween = $Tween
+onready var _collision : CollisionShape2D = $CollisionShape2D
 var _colliding : bool = false
 var _money : PackedScene= load("res://Money/Money.tscn")
 
@@ -21,6 +22,7 @@ func _physics_process(_delta):
 				else:
 					_dropped.cell = false
 				get_parent().get_parent().add_child(_dropped)
+			_collision.disabled = true
 			var _error = _fadeout.interpolate_property(self, "modulate", null, Color(1, 1, 1, 0), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			var _error2 = _fadeout.start()
 
