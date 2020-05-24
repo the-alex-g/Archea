@@ -4,6 +4,7 @@ onready var _flipper : AnimationPlayer = $AnimationPlayer
 onready var _sprite  : Sprite = $Sprite
 onready var _ding : AudioStreamPlayer = $AudioStreamPlayer
 onready var _collision : CollisionShape2D = $CollisionShape2D
+onready var _areacollison : CollisionShape2D = $Area2D/CollisionShape2D
 var cell : bool
 
 func _ready():
@@ -26,5 +27,6 @@ func _on_Area2D_body_entered(body):
 		_ding.play()
 		hide()
 		_collision.set_deferred("disabled", true)
+		_areacollison.set_deferred("disabled", true)
 		yield(get_tree().create_timer(0.15), "timeout")
 		queue_free()

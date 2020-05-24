@@ -7,6 +7,7 @@ onready var healthbar : ProgressBar = $ProgressBar
 onready var floor_detector_left : RayCast2D = $Left
 onready var floor_detector_right : RayCast2D = $Right
 onready var sprite : Sprite = $Sprite
+onready var _hit : AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var animator : AnimationPlayer = $AnimationPlayer
 onready var fadeout : Tween = $Tween
 var state = State.WALKING
@@ -46,6 +47,7 @@ func calculate_move_velocity(linear_velocity):
 	return velocity
 
 func hit(damage):
+	_hit.play()
 	health -= damage
 	healthbar.value = health
 	if health <= 0:
