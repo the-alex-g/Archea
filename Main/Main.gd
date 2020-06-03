@@ -4,6 +4,7 @@ onready var _player : KinematicBody2D = $Player
 onready var _music : AudioStreamPlayer = $Music
 onready var _door : Area2D = $Level_Door
 onready var _backgroundcolor : AnimationPlayer = $ParallaxBackground/ColorRect/AnimationPlayer
+onready var _fogcolor : AnimationPlayer = $icon/AnimationPlayer
 var _between : bool = false
 var _not_first : bool = false
 var _last : Node = null
@@ -12,6 +13,7 @@ func _ready():
 	_backgroundcolor.play("Fade")
 	_music.play()
 	_load_level()
+	_fogcolor.play("Fog_Color")
 
 func _on_Player_dead():
 	get_tree().paused = true
