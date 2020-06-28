@@ -6,14 +6,14 @@ var spore : PackedScene = preload("res://Ammo/Ammo.tscn")
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*3))
-	damage = Variables.player_damage/2
+	damage = int(round(Variables.player_damage/2.0))
 	healthbar.value = health
 	healthbar.max_value = health
 
 func _on_ShootTimer_timeout():
 	if alive:
 		var ammo = spore.instance()
-		ammo.position = position
+		ammo.position = get_global_transform().origin
 		ammo.left = left
 		ammo.damage = damage
 		ammo.good = false

@@ -85,7 +85,7 @@ func _fade_finished():
 	for _x in range(0,_Value):
 		randomize()
 		var dropped = money.instance()
-		dropped.position = position
+		dropped.position = get_global_transform().origin
 		var cell = rand_range(1,100)
 		cell = int(round(cell))
 		if cell >= 98:
