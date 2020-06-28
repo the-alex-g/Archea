@@ -103,9 +103,9 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1.14708, -1.56158 )
 texture = ExtResource( 2 )
-vframes = 7
+vframes = 8
 hframes = 5
-frame = 13
+frame = 8
 
 [node name="Right" type="RayCast2D" parent="."]
 position = Vector2( 14.887, 0 )

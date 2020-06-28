@@ -5,6 +5,7 @@ export var damage : int = 20
 func _ready():
 	state = State.IDLE
 	health = int(round((Variables.max_health/10.0)*5))
+	damage = Variables.player_damage*2
 	healthbar.value = health
 	healthbar.max_value = health
 

@@ -8,6 +8,7 @@ var damage : int = 10
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*4))
+	damage = Variables.player_damage
 	healthbar.value = health
 	healthbar.max_value = health
 

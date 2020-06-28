@@ -82,7 +82,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.328239, -5.00485 )
 texture = ExtResource( 1 )
-vframes = 7
+vframes = 8
 hframes = 5
 
 [node name="Sighted" type="Area2D" parent="."]

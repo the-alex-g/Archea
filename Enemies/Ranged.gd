@@ -1,11 +1,12 @@
 extends Enemy
 
-var damage : int = 5
+var damage:int
 onready var shoottimer : Timer = $ShootTimer
 var spore : PackedScene = preload("res://Ammo/Ammo.tscn")
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*3))
+	damage = Variables.player_damage/2
 	healthbar.value = health
 	healthbar.max_value = health
 

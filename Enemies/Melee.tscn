@@ -108,7 +108,7 @@ script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
-vframes = 7
+vframes = 8
 hframes = 5
 frame = 25
 
