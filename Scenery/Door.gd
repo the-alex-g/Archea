@@ -8,7 +8,6 @@ func hit(_damage):
 	_smash.play()
 	sprite.animation = "Open"
 	sprite.scale.x = -1 if _right == true else 1
-	print(str(sprite.scale.x))
 	set_collision_layer_bit(1, false)
 	set_collision_mask_bit(1, false)
 	set_collision_layer_bit(6, false)

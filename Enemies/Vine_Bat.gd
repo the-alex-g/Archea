@@ -54,6 +54,7 @@ func hit(damage):
 	_healthbar.value = health
 	if health <= 0:
 		_state = State.DYING
+		_dirtimer.stop()
 
 func get_animation():
 	var new_anim = ""
