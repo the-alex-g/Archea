@@ -43,5 +43,5 @@ func _set_pause_menu():
 
 
 func _on_Main_pressed():
-	Variables.level = 0
+	Variables.level = 1
 	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")

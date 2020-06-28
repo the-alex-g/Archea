@@ -126,7 +126,7 @@ position = Vector2( -70, 70 )
 position = Vector2( -105, 70 )
 
 [node name="Start" type="Position2D" parent="."]
-position = Vector2( -105, 70 )
+position = Vector2( -1050, 70 )
 
 [node name="Exit" type="Position2D" parent="."]
 position = Vector2( -634.259, 1018.92 )

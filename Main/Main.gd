@@ -35,6 +35,7 @@ func _load_level():
 	var _exit = _Level.get_node("Exit")
 	_not_first = true
 	add_child(_Level)
+	get_tree().paused = false
 	_player.position = _start.global_position
 	_door.position = _exit.global_position
 
