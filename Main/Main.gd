@@ -17,6 +17,7 @@ func _ready():
 
 func _on_Player_dead():
 	get_tree().paused = true
+	Variables.level = 1
 	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():

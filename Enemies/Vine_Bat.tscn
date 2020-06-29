@@ -1,18 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Art/Enemies.png" type="Texture" id=1]
 [ext_resource path="res://themes/Enemybar2.tres" type="StyleBox" id=2]
 [ext_resource path="res://themes/Enemybar1.tres" type="StyleBox" id=3]
 [ext_resource path="res://Enemies/Vine_Bat.gd" type="Script" id=4]
+[ext_resource path="res://Music/SFX/Enemy_hit.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0462
 
-[sub_resource type="Animation" id=5]
-resource_name = "Asleep"
-
 [sub_resource type="Animation" id=2]
-resource_name = "Die"
+resource_name = "Asleep"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 30 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -24,10 +36,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 31, 32, 33, 34, 35 ]
+"values": [ 33, 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -40,11 +52,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 30, 31 ]
+"values": [ 33, 32 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 119.439
+[sub_resource type="Animation" id=5]
+resource_name = "Waking"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 31 ]
+}
 
 [node name="VineBat" type="KinematicBody2D"]
 collision_layer = 8
@@ -56,28 +81,29 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 1.60336, -5.94807 )
+offset = Vector2( 0, 14 )
 vframes = 8
 hframes = 5
-frame = 31
+frame = 30
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Asleep = SubResource( 5 )
-anims/Die = SubResource( 2 )
-anims/Fly = SubResource( 3 )
+anims/Asleep = SubResource( 2 )
+anims/Die = SubResource( 3 )
+anims/Fly = SubResource( 4 )
+anims/Waking = SubResource( 5 )
 
 [node name="SightRange" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
-shape = SubResource( 4 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SightRange"]
+polygon = PoolVector2Array( -120, 0, 120, 0, 112, 32, 104, 56, 88, 80, 80, 88, 56, 104, 32, 112, 0, 120, -32, 112, -56, 104, -80, 88, -88, 80, -104, 56, -112, 32 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = -25.0
-margin_top = -30.0
-margin_right = 29.0
-margin_bottom = -23.0
+margin_left = -10.0
+margin_top = -15.0
+margin_right = 10.0
+margin_bottom = -10.0
 custom_styles/fg = ExtResource( 3 )
 custom_styles/bg = ExtResource( 2 )
 max_value = 20.0
@@ -90,7 +116,18 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource( 1 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="SightRange" to="." method="_on_SightRange_body_entered"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_tween_all_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_entered"]

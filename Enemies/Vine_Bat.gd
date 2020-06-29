@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-enum State{FLYING, DYING, DEAD, ASLEEP}
+enum State{FLYING, DYING, DEAD, ASLEEP, WAKING}
 onready var _animator:AnimationPlayer = $AnimationPlayer
 onready var _sprite:Sprite = $Sprite
 onready var _healthbar:ProgressBar = $ProgressBar
 onready var _collision : CollisionShape2D = $CollisionShape2D
-#onready var _hit : AudioStreamPlayer2D = $AudioStreamPlayer2D
+onready var _hit : AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var _tween:Tween = $Tween
 onready var _dirtimer:Timer = $Timer
 var _state = State.ASLEEP
@@ -20,6 +20,7 @@ var dir:Vector2 = Vector2(0,0)
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*2))
+	_damage = int(round(Variables.player_damage))
 	_healthbar.value = health
 	_healthbar.max_value = health
 
@@ -35,21 +36,13 @@ func _physics_process(delta):
 func _on_SightRange_body_entered(body):
 	if body is Player and target == null:
 		target = body
-		_state = State.FLYING
-		_dirtimer.start(1)
-		_on_Timer_timeout()
+		_state = State.WAKING
 
 func _on_Timer_timeout():
-	if get_global_transform().origin < target.get_global_transform().origin:
-		_sprite.scale.x = -1
-	else:
-		_sprite.scale.x = 1
-	var _nextdir = target.get_global_transform().origin - get_global_transform().origin
-	var _error = _tween.interpolate_property(self, "dir", null, _nextdir, 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	var _error2 = _tween.start()
+	_change_dir()
 
 func hit(damage):
-	#_hit.play()
+	_hit.play()
 	health -= damage
 	_healthbar.value = health
 	if health <= 0:
@@ -62,6 +55,8 @@ func get_animation():
 		new_anim = "Fly"
 	elif _state == State.ASLEEP:
 		new_anim = "Asleep"
+	elif _state == State.WAKING:
+		new_anim = "Waking"
 	elif _state == State.DYING:
 		_collision.disabled = true
 		new_anim = "Die"
@@ -78,6 +73,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		_state = State.DEAD
 		dead = true
 		_fade_out()
+	if anim_name == "Waking":
+		_state = State.FLYING
+		_dirtimer.start(1)
+		_change_dir()
 
 func _on_tween_all_completed():
 	if dead:
@@ -96,3 +95,16 @@ func _on_tween_all_completed():
 				dropped.cell = false
 			get_parent().get_parent().add_child(dropped)
 		queue_free()
+
+func _on_HitArea_entered(body):
+	if body is Player:
+		body.hit(_damage)
+
+func _change_dir():
+	if get_global_transform().origin < target.get_global_transform().origin:
+		_sprite.scale.x = -1
+	else:
+		_sprite.scale.x = 1
+	var _nextdir = target.get_global_transform().origin - get_global_transform().origin
+	var _error = _tween.interpolate_property(self, "dir", null, _nextdir, 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	var _error2 = _tween.start()

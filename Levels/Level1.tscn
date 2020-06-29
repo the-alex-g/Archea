@@ -121,17 +121,20 @@ position = Vector2( -324.225, 1234.36 )
 [node name="RangedEnemy5" parent="Permanents" instance=ExtResource( 4 )]
 position = Vector2( -635.045, 468.105 )
 
-[node name="Area2D" parent="Permanents" instance=ExtResource( 2 )]
+[node name="GoldShrub" parent="Permanents" instance=ExtResource( 2 )]
 position = Vector2( -70, 70 )
+
+[node name="VineBat" parent="Permanents" instance=ExtResource( 9 )]
+position = Vector2( 665, 1085 )
+
+[node name="VineBat2" parent="Permanents" instance=ExtResource( 9 )]
+position = Vector2( -35, 0 )
 
 [node name="Working" type="Node2D" parent="."]
 position = Vector2( -105, 70 )
 
 [node name="Start" type="Position2D" parent="."]
 position = Vector2( -1050, 70 )
-
-[node name="KinematicBody2D" parent="Start" instance=ExtResource( 9 )]
-position = Vector2( 210, 0 )
 
 [node name="Exit" type="Position2D" parent="."]
 position = Vector2( -634.259, 1018.92 )
