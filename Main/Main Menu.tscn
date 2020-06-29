@@ -45,8 +45,14 @@ margin_bottom = 89.0
 custom_fonts/font = ExtResource( 4 )
 text = "Stats"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Node" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -118,6 +124,30 @@ text = "Vine Bats"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Back" type="Button" parent="Node"]
+margin_left = -15.5672
+margin_top = 32.332
+margin_right = -3.56723
+margin_bottom = 52.332
+custom_fonts/font = ExtResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="Node"]
+margin_left = -19.7584
+margin_top = 61.0715
+margin_right = 32.2416
+margin_bottom = 88.0715
+custom_fonts/font = ExtResource( 4 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Stats" to="." method="_on_Stats_pressed"]
+[connection signal="pressed" from="Node/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Node/Reset" to="." method="_on_Reset_pressed"]

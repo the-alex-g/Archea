@@ -74,6 +74,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Die":
 		_state = State.DEAD
 		dead = true
+		$HitArea/CollisionShape2D2.disabled = true
 		_fade_out()
 	if anim_name == "Waking":
 		_state = State.FLYING

@@ -28,3 +28,6 @@ func _on_HitArea_body_entered(body):
 	if alive:
 		if body.has_method("hit"):
 			body.hit(damage)
+
+func _on_Guytrap_dead():
+	$HitArea/CollisionShape2D.disabled = true
