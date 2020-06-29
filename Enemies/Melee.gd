@@ -9,6 +9,7 @@ var damage : int = 10
 func _ready():
 	health = int(round((Variables.max_health/10.0)*4))
 	damage = Variables.player_damage
+	type = "Shambler"
 	healthbar.value = health
 	healthbar.max_value = health
 
@@ -37,9 +38,9 @@ func _on_Timer_timeout():
 	if state != State.DEAD and state != State.DYING:
 		_armcollider.disabled = false
 		if left:
-			_armswinger.play("Left" + Variables.type)
+			_armswinger.play("Left")
 		else:
-			_armswinger.play("Right" + Variables.type)
+			_armswinger.play("Right")
 		_timer.stop()
 
 func _on_arm_done(_anim_name):

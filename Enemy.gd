@@ -16,6 +16,7 @@ var money : PackedScene = preload("res://Money/Money.tscn")
 var moving : bool = true
 var health : int = 0
 var alive :bool = true
+var type:String = ""
 signal dead
 
 func _ready():
@@ -52,26 +53,27 @@ func hit(damage):
 	healthbar.value = health
 	if health <= 0:
 		healthbar.queue_free()
+		Variables.killed_enemy(type)
 		state = State.DYING
 
 func get_animation():
 	var new_anim = ""
 	if state == State.WALKING:
-		new_anim = "Walk" + Variables.type
+		new_anim = "Walk"
 	elif state == State.IDLE:
-		new_anim = "Idle" + Variables.type
+		new_anim = "Idle"
 	elif state == State.SHOOTING:
-		new_anim = "Shoot" + Variables.type
+		new_anim = "Shoot"
 	elif state == State.DYING:
 		collision.disabled = true
-		new_anim = "Die" + Variables.type
+		new_anim = "Die"
 		emit_signal("dead")
 	return new_anim
 
 func _animation_finished(anim_name):
-	if anim_name == "Shoot" + Variables.type:
+	if anim_name == "Shoot":
 		state = State.IDLE
-	elif anim_name == "Die" + Variables.type:
+	elif anim_name == "Die":
 		state = State.DEAD
 		_fade_out()
 

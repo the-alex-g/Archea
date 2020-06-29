@@ -21,7 +21,6 @@ func _on_Player_dead():
 	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():
-	Variables.type = "_Shroom"
 	var _level : PackedScene
 	if _not_first == true:
 		_last.queue_free()

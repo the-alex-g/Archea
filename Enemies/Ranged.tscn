@@ -23,7 +23,7 @@ extents = Vector2( 134.806, 24.1692 )
 extents = Vector2( 306.907, 25.1789 )
 
 [sub_resource type="Animation" id=7]
-resource_name = "Die_Shroom"
+resource_name = "Die"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -39,7 +39,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "Idle_Shroom"
+resource_name = "Idle"
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -56,7 +56,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "Shoot_Shroom"
+resource_name = "Shoot"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -72,7 +72,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "Walk_Shroom"
+resource_name = "Walk"
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -173,10 +173,10 @@ position = Vector2( 0, -1.99028 )
 shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Die_Shroom = SubResource( 7 )
-anims/Idle_Shroom = SubResource( 8 )
-anims/Shoot_Shroom = SubResource( 9 )
-anims/Walk_Shroom = SubResource( 10 )
+anims/Die = SubResource( 7 )
+anims/Idle = SubResource( 8 )
+anims/Shoot = SubResource( 9 )
+anims/Walk = SubResource( 10 )
 
 [node name="Tween" type="Tween" parent="."]
 

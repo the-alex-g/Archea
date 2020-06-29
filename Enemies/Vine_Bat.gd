@@ -20,7 +20,7 @@ var dir:Vector2 = Vector2(0,0)
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*2))
-	_damage = int(round(Variables.player_damage/2))
+	_damage = int(round(Variables.player_damage/2.0))
 	_healthbar.value = health
 	_healthbar.max_value = health
 
@@ -48,6 +48,7 @@ func hit(damage):
 	if health <= 0:
 		_state = State.DYING
 		_healthbar.queue_free()
+		Variables.killed_enemy("Vine_Bat")
 		_dirtimer.stop()
 
 func get_animation():

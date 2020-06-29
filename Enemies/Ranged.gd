@@ -8,6 +8,7 @@ func _ready():
 	health = int(round((Variables.max_health/10.0)*3))
 	damage = int(round(Variables.player_damage/2.0))
 	healthbar.value = health
+	type = "Spitter"
 	healthbar.max_value = health
 
 func _on_ShootTimer_timeout():

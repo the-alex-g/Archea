@@ -7,6 +7,7 @@ func _ready():
 	health = int(round((Variables.max_health/10.0)*5))
 	damage = Variables.player_damage*2
 	healthbar.value = health
+	type = "Snapper"
 	healthbar.max_value = health
 
 func _on_Sighted_body_exited(_body):
