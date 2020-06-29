@@ -51,6 +51,7 @@ func hit(damage):
 	health -= damage
 	healthbar.value = health
 	if health <= 0:
+		healthbar.queue_free()
 		state = State.DYING
 
 func get_animation():
