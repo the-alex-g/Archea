@@ -1,7 +1,6 @@
 extends RigidBody2D
 
-onready var _flipper : AnimationPlayer = $AnimationPlayer
-onready var _sprite  : Sprite = $Sprite
+onready var _animatior : AnimationPlayer = $AnimationPlayer
 onready var _ding : AudioStreamPlayer = $AudioStreamPlayer
 onready var _collision : CollisionShape2D = $CollisionShape2D
 onready var _areacollison : CollisionShape2D = $Area2D/CollisionShape2D
@@ -10,11 +9,10 @@ var cell : bool
 func _ready():
 	randomize()
 	apply_impulse(Vector2(0,0), Vector2(rand_range(-100,100),rand_range(100,200)))
-	_flipper.play("Flip")
 	if cell == true:
-		_sprite.animation = "Cell"
+		_animatior.play("Leaf")
 	else:
-		_sprite.animation = "Coin"
+		_animatior.play("Coin")
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
