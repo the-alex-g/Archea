@@ -61,7 +61,7 @@ tracks/0/keys = {
 "values": [ 19, 20, 21, 22, 23, 24 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Left"
 length = 0.5
 tracks/0/type = "value"
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "values": [ 0.0, 90.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "Right"
 length = 0.5
 tracks/0/type = "value"
@@ -93,17 +93,17 @@ tracks/0/keys = {
 "values": [ 0.0, -90.0, 0.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 10, 23.9697 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 10, 23.9697 )
-
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 23.9697 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 23.9697 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 22.9167, 23.7193 )
 
 [node name="ShroomMan" type="KinematicBody2D" groups=[
-"Enemies",
+"Persist",
 ]]
 collision_layer = 14
 collision_mask = 0
@@ -154,8 +154,8 @@ anims/Walk = SubResource( 4 )
 position = Vector2( 0.086524, -6.58979 )
 
 [node name="AnimationPlayer" parent="Arm" index="1"]
-anims/Left = SubResource( 8 )
-anims/Right = SubResource( 9 )
+anims/Left = SubResource( 5 )
+anims/Right = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Arm" index="2"]
 visible = false
@@ -167,7 +167,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
 visible = false
 position = Vector2( -15.5899, -0.107523 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="RightArea" type="Area2D" parent="."]
 collision_layer = 32
@@ -176,7 +176,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
 visible = false
 position = Vector2( 9.47499, 0.464987 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Sight" type="Area2D" parent="."]
 collision_layer = 32
@@ -185,7 +185,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 visible = false
 position = Vector2( -2.96803, 0.214642 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Timer" type="Timer" parent="."]
 

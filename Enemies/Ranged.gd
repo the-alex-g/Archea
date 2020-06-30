@@ -1,6 +1,5 @@
 extends Enemy
 
-var damage:int
 onready var shoottimer : Timer = $ShootTimer
 var spore : PackedScene = preload("res://Ammo/Ammo.tscn")
 

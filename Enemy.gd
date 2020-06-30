@@ -15,6 +15,7 @@ var left : bool = true
 var money : PackedScene = preload("res://Money/Money.tscn")
 var moving : bool = true
 var health : int = 0
+var damage:int
 var alive :bool = true
 var type:String = ""
 signal dead
@@ -47,9 +48,9 @@ func calculate_move_velocity(linear_velocity):
 		velocity.x *= -1
 	return velocity
 
-func hit(damage):
+func hit(damagetaken):
 	_hit.play()
-	health -= damage
+	health -= damagetaken
 	healthbar.value = health
 	if health <= 0:
 		healthbar.queue_free()
@@ -97,3 +98,15 @@ func _fade_finished():
 			dropped.cell = false
 		get_parent().get_parent().add_child(dropped)
 	queue_free()
+
+func save():
+	var save_dict = {
+		"filename":get_filename(),
+		"parent":get_parent().get_path(),
+		"pos_x":position.x,
+		"pos_y":position.y,
+		"damage":damage,
+		"health":health,
+		"state":state
+	}
+	return save_dict

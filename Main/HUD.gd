@@ -8,7 +8,7 @@ onready var _score : Label = $Visibility/VBoxContainer/Score
 onready var _money : Label = $Money
 onready var _health : Label = $Visibility/VBoxContainer/Health
 onready var _damage : Label = $Visibility/VBoxContainer/Damage
-
+signal save_game
 var _visible : bool = false
 var _disabled : bool = true
 
@@ -43,5 +43,5 @@ func _set_pause_menu():
 
 
 func _on_Main_pressed():
-	Variables.level = 1
-	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
+	emit_signal("save_game")
+

@@ -4,7 +4,6 @@ onready var _armswinger : AnimationPlayer = $Arm/AnimationPlayer
 onready var _armcollider : CollisionShape2D = $Arm/CollisionShape2D
 onready var _arm : Area2D = $Arm
 onready var _timer :Timer = $Timer
-var damage : int = 10
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*4))

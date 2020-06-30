@@ -89,7 +89,7 @@ tracks/0/keys = {
 }
 
 [node name="RangedEnemy" type="KinematicBody2D" groups=[
-"Enemies",
+"Persist",
 ]]
 collision_layer = 14
 collision_mask = 0

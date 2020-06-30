@@ -8,11 +8,11 @@ onready var _collision : CollisionShape2D = $CollisionShape2D
 onready var _hit : AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var _tween:Tween = $Tween
 onready var _dirtimer:Timer = $Timer
-var _state = State.ASLEEP
+var state = State.ASLEEP
 var _money:PackedScene = preload("res://Money/Money.tscn")
 var health:int = 0
 var dead:bool = false
-var _damage:int
+var damage:int
 var speed:int = 200
 var _velocity:Vector2 = Vector2(0,0)
 var target = null
@@ -20,12 +20,12 @@ var dir:Vector2 = Vector2(0,0)
 
 func _ready():
 	health = int(round((Variables.max_health/10.0)*2))
-	_damage = int(round(Variables.player_damage/2.0))
+	damage = int(round(Variables.player_damage/2.0))
 	_healthbar.value = health
 	_healthbar.max_value = health
 
 func _physics_process(delta):
-	if _state == State.FLYING:
+	if state == State.FLYING:
 		if dir.length_squared() > 500:
 			_velocity = dir.normalized()*speed*delta
 			var _error = move_and_collide(_velocity)
@@ -36,30 +36,30 @@ func _physics_process(delta):
 func _on_SightRange_body_entered(body):
 	if body is Player and target == null:
 		target = body
-		_state = State.WAKING
+		state = State.WAKING
 
 func _on_Timer_timeout():
 	_change_dir()
 
-func hit(damage):
+func hit(damagetaken):
 	_hit.play()
-	health -= damage
+	health -= damagetaken
 	_healthbar.value = health
 	if health <= 0:
-		_state = State.DYING
+		state = State.DYING
 		_healthbar.queue_free()
 		Variables.killed_enemy("Vine_Bat")
 		_dirtimer.stop()
 
 func get_animation():
 	var new_anim = ""
-	if _state == State.FLYING:
+	if state == State.FLYING:
 		new_anim = "Fly"
-	elif _state == State.ASLEEP:
+	elif state == State.ASLEEP:
 		new_anim = "Asleep"
-	elif _state == State.WAKING:
+	elif state == State.WAKING:
 		new_anim = "Waking"
-	elif _state == State.DYING:
+	elif state == State.DYING:
 		_collision.disabled = true
 		new_anim = "Die"
 		set_collision_layer_bit(9, true)
@@ -72,12 +72,12 @@ func _fade_out():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Die":
-		_state = State.DEAD
+		state = State.DEAD
 		dead = true
 		$HitArea/CollisionShape2D2.disabled = true
 		_fade_out()
 	if anim_name == "Waking":
-		_state = State.FLYING
+		state = State.FLYING
 		_dirtimer.start(1)
 		_change_dir()
 
@@ -101,7 +101,7 @@ func _on_tween_all_completed():
 
 func _on_HitArea_entered(body):
 	if body is Player:
-		body.hit(_damage)
+		body.hit(damage)
 
 func _change_dir():
 	if get_global_transform().origin < target.get_global_transform().origin:
@@ -111,3 +111,15 @@ func _change_dir():
 	var _nextdir = target.get_global_transform().origin - get_global_transform().origin
 	var _error = _tween.interpolate_property(self, "dir", null, _nextdir, 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	var _error2 = _tween.start()
+
+func save():
+	var save_dict = {
+		"filename":get_filename(),
+		"parent":get_parent().get_path(),
+		"pos_x":position.x,
+		"pos_y":position.y,
+		"damage":damage,
+		"health":health,
+		"state":state
+	}
+	return save_dict

@@ -64,4 +64,5 @@ texture = ExtResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fog"]
 anims/Fog_Color = SubResource( 1 )
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+[connection signal="save_game" from="HUD" to="." method="_on_HUD_save_game"]
 [connection signal="entered" from="Level_Door" to="." method="_on_Level_Door_entered"]

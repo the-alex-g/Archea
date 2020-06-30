@@ -70,7 +70,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 22.119, 12.062 )
 
-[node name="Guytrap" type="KinematicBody2D"]
+[node name="Guytrap" type="KinematicBody2D" groups=[
+"Persist",
+]]
 collision_layer = 14
 collision_mask = 0
 script = ExtResource( 6 )
