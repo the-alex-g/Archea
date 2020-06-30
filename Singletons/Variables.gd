@@ -7,7 +7,7 @@ var player_damage : int = 10
 var max_health : int = 100
 var level : int = 1
 
-func _ready():
+func loadval():
 	var save_game := File.new()
 	if save_game.file_exists("user://Variables.save"):
 		var _error = save_game.open("user://Variables.save", File.READ)

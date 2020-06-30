@@ -10,6 +10,7 @@ var _not_first : bool = false
 var _last : Node = null
 
 func _ready():
+	Variables.loadval()
 	_backgroundcolor.play("Fade")
 	_music.play()
 	_load_level()
@@ -58,7 +59,6 @@ func _on_Level_Door_entered():
 func load_game():
 	var save_game := File.new()
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	Variables.level = 1
 	for i in save_nodes:
 		i.queue_free()
 	var _error = save_game.open("user://savegame.save", File.READ)
