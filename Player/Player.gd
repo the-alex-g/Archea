@@ -19,6 +19,8 @@ signal dead
 const FLOOR_DETECT_DISTANCE = 20.0
 
 func _ready():
+	if not is_connected("dead", get_parent(), "_on_Player_dead"):
+		var _error = connect("dead", get_parent(), "_on_Player_dead")
 	var camera: Camera2D = $Camera2D
 	camera.custom_viewport = $"../.."
 
@@ -176,3 +178,13 @@ func dodge():
 
 func _on_DodgeTimer_timeout():
 	dodgable = true
+
+func save():
+	var save_dict = {
+		"filename":get_filename(),
+		"parent":get_parent().get_path(),
+		"pos_x":position.x,
+		"pos_y":position.y,
+		"state":state
+	}
+	return save_dict

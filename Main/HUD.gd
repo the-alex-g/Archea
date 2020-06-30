@@ -44,4 +44,3 @@ func _set_pause_menu():
 
 func _on_Main_pressed():
 	emit_signal("save_game")
-

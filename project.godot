@@ -50,6 +50,8 @@ Variables="*res://Singletons/Variables.gd"
 
 window/size/width=700
 window/size/height=700
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 

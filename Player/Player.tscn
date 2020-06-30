@@ -207,6 +207,7 @@ extents = Vector2( 12.5394, 10 )
 extents = Vector2( 16.8771, 25.2945 )
 
 [node name="Player" type="KinematicBody2D" groups=[
+"Persist",
 "Player",
 ]]
 position = Vector2( 6.65379, 1.42166 )

@@ -15,13 +15,22 @@ func _ready():
 	_load_level()
 	var save_game := File.new()
 	if save_game.file_exists("user://savegame.save"):
-		load_game()
+		var _error = save_game.open("user://savegame.save", File.READ)
+		var content = parse_json(save_game.get_line())
+		if content != null:
+			load_game()
+		save_game.close()
 	_fogcolor.play("Fog_Color")
 
 func _on_Player_dead():
 	get_tree().paused = true
+	Variables.reset()
+	var save_game := File.new()
+	var _error = save_game.open("user://savegame.save", File.WRITE)
+	save_game.store_line(to_json(null))
+	save_game.close()
 	Variables.level = 1
-	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
+	var _error2 = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():
 	var _level : PackedScene
@@ -29,7 +38,6 @@ func _load_level():
 		_last.queue_free()
 	if not _between:
 		_level = load("res://Levels/Level" + str(Variables.level) + ".tscn")
-		Variables.level += 1
 	if _between:
 		_level = load("res://Levels/In_between.tscn")
 	var _Level : Node = _level.instance()
@@ -44,6 +52,7 @@ func _load_level():
 
 func _on_Level_Door_entered():
 	_between = !_between
+	Variables.level += 1
 	_load_level()
 
 func load_game():
@@ -65,6 +74,7 @@ func load_game():
 	save_game.close()
 
 func _on_HUD_save_game():
+	Variables.save_game()
 	save_game()
 
 func save_game():
