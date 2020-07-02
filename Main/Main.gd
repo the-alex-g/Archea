@@ -53,7 +53,8 @@ func _load_level():
 
 func _on_Level_Door_entered():
 	_between = !_between
-	Variables.level += 1
+	if not _between:
+		Variables.level += 1
 	_load_level()
 
 func load_game():
@@ -65,6 +66,8 @@ func load_game():
 	while save_game.get_position() < save_game.get_len():
 		var node_data = parse_json(save_game.get_line())
 		var new_object = load(node_data["filename"]).instance()
+		if new_object.name == "Player":
+			_player = new_object
 		get_node(node_data["parent"]).add_child(new_object)
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 		for i in node_data.keys():
