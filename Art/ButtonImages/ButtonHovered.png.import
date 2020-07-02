@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button.png-3f33b4b1af1e8531d20d7da1329ddbde.stex"
+path="res://.import/ButtonHovered.png-db89cf8b465b6a96eed4e9798c47a00d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Button.png"
-dest_files=[ "res://.import/Button.png-3f33b4b1af1e8531d20d7da1329ddbde.stex" ]
+source_file="res://Art/ButtonImages/ButtonHovered.png"
+dest_files=[ "res://.import/ButtonHovered.png-db89cf8b465b6a96eed4e9798c47a00d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

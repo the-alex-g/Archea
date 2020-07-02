@@ -2,8 +2,8 @@ extends CanvasLayer
 
 onready var _healthbar : ProgressBar = $Control/ProgressBar
 onready var _visibility : Node2D = $Visibility
-onready var _resume : Button = $Visibility/HBoxContainer/Resume
-onready var _main_button : Button = $Visibility/HBoxContainer/Main
+onready var _resume : Button = $Visibility/VBoxContainer/Resume
+onready var _main_button : Button = $Visibility/VBoxContainer/Main
 onready var _score : Label = $Visibility/VBoxContainer/Score
 onready var _money : Label = $Money
 onready var _health : Label = $Visibility/VBoxContainer/Health

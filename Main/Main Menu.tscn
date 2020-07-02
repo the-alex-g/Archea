@@ -1,15 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/Scroll.png" type="Texture" id=3]
 [ext_resource path="res://themes/Font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Art/Enemies.png" type="Texture" id=5]
-[ext_resource path="res://Art/Button.png" type="Texture" id=6]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 250, 140 )
+[ext_resource path="res://themes/Buttons/ButtonHovered.tres" type="StyleBox" id=6]
+[ext_resource path="res://themes/Buttons/ButtonNormal.tres" type="StyleBox" id=7]
+[ext_resource path="res://themes/Buttons/ButtonPressed.tres" type="StyleBox" id=8]
 
 [node name="MainMenu" type="Node"]
 pause_mode = 2
@@ -25,10 +23,16 @@ margin_left = 315.0
 margin_top = 525.0
 margin_right = 397.0
 margin_bottom = 554.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 margin_right = 82.0
-margin_bottom = 27.0
+margin_bottom = 21.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 4 )
 text = "Quit"
 __meta__ = {
@@ -36,9 +40,12 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_top = 31.0
+margin_top = 25.0
 margin_right = 82.0
-margin_bottom = 58.0
+margin_bottom = 46.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 4 )
 text = "Play"
 __meta__ = {
@@ -46,13 +53,17 @@ __meta__ = {
 }
 
 [node name="Stats" type="Button" parent="VBoxContainer"]
-margin_top = 62.0
+margin_top = 50.0
 margin_right = 82.0
-margin_bottom = 89.0
+margin_bottom = 71.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 4 )
 text = "Stats"
 
 [node name="Node" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -152,7 +163,9 @@ __meta__ = {
 [node name="Back" type="Button" parent="Node/VBoxContainer"]
 margin_right = 100.0
 margin_bottom = 21.0
-custom_styles/normal = SubResource( 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 4 )
 text = "Back"
 __meta__ = {
@@ -163,7 +176,9 @@ __meta__ = {
 margin_top = 25.0
 margin_right = 100.0
 margin_bottom = 46.0
-custom_styles/normal = SubResource( 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 4 )
 text = "Reset"
 __meta__ = {

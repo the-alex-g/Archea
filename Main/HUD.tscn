@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Art/barholder.png" type="Texture" id=1]
 [ext_resource path="res://themes/Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/HUD.gd" type="Script" id=3]
+[ext_resource path="res://themes/Buttons/ButtonHovered.tres" type="StyleBox" id=4]
+[ext_resource path="res://themes/Buttons/ButtonNormal.tres" type="StyleBox" id=5]
+[ext_resource path="res://themes/Buttons/ButtonPressed.tres" type="StyleBox" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -49,34 +52,6 @@ __meta__ = {
 
 [node name="Visibility" type="Node2D" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Visibility"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 294.5
-margin_top = 330.0
-margin_right = 411.5
-margin_bottom = 370.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Resume" type="Button" parent="Visibility/HBoxContainer"]
-margin_right = 65.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 2 )
-disabled = true
-text = "Resume"
-
-[node name="Main" type="Button" parent="Visibility/HBoxContainer"]
-margin_left = 69.0
-margin_right = 117.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 2 )
-disabled = true
-text = "Main"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Visibility"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -91,7 +66,7 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="Visibility/VBoxContainer"]
-margin_right = 51.0
+margin_right = 53.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -103,7 +78,7 @@ __meta__ = {
 
 [node name="Damage" type="Label" parent="Visibility/VBoxContainer"]
 margin_top = 25.0
-margin_right = 51.0
+margin_right = 53.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -115,12 +90,40 @@ __meta__ = {
 
 [node name="Health" type="Label" parent="Visibility/VBoxContainer"]
 margin_top = 50.0
-margin_right = 51.0
+margin_right = 53.0
 margin_bottom = 71.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Health"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="Visibility/VBoxContainer"]
+margin_top = 75.0
+margin_right = 53.0
+margin_bottom = 96.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="Button" parent="Visibility/VBoxContainer"]
+margin_top = 100.0
+margin_right = 53.0
+margin_bottom = 121.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "Main"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -135,5 +138,5 @@ text = "Money"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Visibility/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="Visibility/HBoxContainer/Main" to="." method="_on_Main_pressed"]
+[connection signal="pressed" from="Visibility/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Visibility/VBoxContainer/Main" to="." method="_on_Main_pressed"]
