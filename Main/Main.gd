@@ -25,13 +25,16 @@ func _ready():
 
 func _on_Player_dead():
 	get_tree().paused = true
+	reset()
+	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
+
+func reset():
 	Variables.reset()
 	var save_game := File.new()
 	var _error = save_game.open("user://savegame.save", File.WRITE)
 	save_game.store_line(to_json(null))
 	save_game.close()
 	Variables.level = 1
-	var _error2 = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func _load_level():
 	var _level : PackedScene
