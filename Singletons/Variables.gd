@@ -28,7 +28,7 @@ func reset():
 		"player_damage":10,
 		"max_health":100,
 		"level":1,
-		"between":between
+		"between":false
 	}
 	save_game.store_line(to_json(data))
 	save_game.close()
@@ -61,7 +61,8 @@ func save():
 		"score":score,
 		"player_damage":player_damage,
 		"max_health":max_health,
-		"level":level
+		"level":level,
+		"between":between
 	}
 	return save_dict
 
