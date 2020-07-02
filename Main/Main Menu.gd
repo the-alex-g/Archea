@@ -5,8 +5,7 @@ var already_quitted = false
 onready var Quit:Button = $VBoxContainer/Quit
 onready var Play:Button = $VBoxContainer/Play
 onready var Stats:Button = $VBoxContainer/Stats
-onready var Colorr:ColorRect= $ColorRect
-onready var Back:Button = $Node/Back
+onready var Back:Button = $Node/VBoxContainer/Back
 
 func _ready():
 	$ParallaxBackground/ColorRect/AnimationPlayer.play("Fade")
@@ -36,16 +35,15 @@ func _on_Stats_pressed():
 	generate_stats()
 
 func generate_stats():
-	$Node/VBoxContainer/HBoxContainer/Spitters.text = "Spitters Killed: "+(str(Variables.get_value("Spitter")))
-	$Node/VBoxContainer/HBoxContainer/Shamblers.text = "Shamblers Killed: "+(str(Variables.get_value("Shambler")))
-	$Node/VBoxContainer/HBoxContainer2/Snappers.text = "Snappers Killed: "+(str(Variables.get_value("Snapper")))
-	$Node/VBoxContainer/HBoxContainer2/Vine_Bats.text = "Vine Bats Killed: "+(str(Variables.get_value("Vine_Bat")))
+	$Node/Spitters.text = "Spitters Killed: "+(str(Variables.get_value("Spitter")))
+	$Node/Shamblers.text = "Shamblers Killed: "+(str(Variables.get_value("Shambler")))
+	$Node/Snappers.text = "Snappers Killed: "+(str(Variables.get_value("Snapper")))
+	$Node/Vine_Bats.text = "Vine Bats Killed: "+(str(Variables.get_value("Vine_Bat")))
 
 func _set_disabled(boolean:bool):
 	Quit.disabled = boolean
 	$Node.visible = boolean
 	Play.disabled = boolean
-	Colorr.visible = boolean
 	Stats.disabled = boolean
 	if boolean:
 		Back.disabled = false

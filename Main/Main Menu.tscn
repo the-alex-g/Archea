@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Scroll.png" type="Texture" id=3]
 [ext_resource path="res://themes/Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Art/Enemies.png" type="Texture" id=5]
 
 [node name="MainMenu" type="Node"]
 pause_mode = 2
@@ -20,7 +22,7 @@ margin_right = 397.0
 margin_bottom = 554.0
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_right = 82.0
+margin_right = 116.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quit"
@@ -30,7 +32,7 @@ __meta__ = {
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_top = 31.0
-margin_right = 82.0
+margin_right = 116.0
 margin_bottom = 58.0
 custom_fonts/font = ExtResource( 4 )
 text = "Play"
@@ -40,17 +42,10 @@ __meta__ = {
 
 [node name="Stats" type="Button" parent="VBoxContainer"]
 margin_top = 62.0
-margin_right = 82.0
+margin_right = 116.0
 margin_bottom = 89.0
 custom_fonts/font = ExtResource( 4 )
 text = "Stats"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Node" type="Control" parent="."]
 anchor_left = 0.5
@@ -61,37 +56,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -66.5
-margin_top = -23.0
-margin_right = 66.5
-margin_bottom = 23.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Scroll" type="Sprite" parent="Node"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node/VBoxContainer"]
-margin_right = 133.0
-margin_bottom = 21.0
-
-[node name="Shamblers" type="Label" parent="Node/VBoxContainer/HBoxContainer"]
-margin_right = 71.0
-margin_bottom = 21.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Shamblers"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Spitters" type="Label" parent="Node/VBoxContainer/HBoxContainer"]
-margin_left = 75.0
-margin_right = 133.0
-margin_bottom = 21.0
+[node name="Spitters" type="Label" parent="Node"]
+margin_left = -132.965
+margin_top = -194.295
+margin_right = 0.0352478
+margin_bottom = -173.295
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Spitters"
@@ -99,14 +72,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Node/VBoxContainer"]
-margin_top = 25.0
-margin_right = 133.0
-margin_bottom = 46.0
+[node name="Shamblers" type="Label" parent="Node"]
+margin_left = -129.869
+margin_top = -265.823
+margin_right = -58.8687
+margin_bottom = -244.823
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Shamblers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Snappers" type="Label" parent="Node/VBoxContainer/HBoxContainer2"]
-margin_right = 60.0
-margin_bottom = 21.0
+[node name="Sprite2" type="Sprite" parent="Node"]
+position = Vector2( -150, -190 )
+texture = ExtResource( 5 )
+vframes = 8
+hframes = 5
+frame = 8
+
+[node name="Sprite3" type="Sprite" parent="Node"]
+position = Vector2( -150, -120 )
+texture = ExtResource( 5 )
+vframes = 8
+hframes = 5
+
+[node name="Sprite4" type="Sprite" parent="Node"]
+position = Vector2( -150, -50 )
+texture = ExtResource( 5 )
+vframes = 8
+hframes = 5
+frame = 33
+
+[node name="Sprite5" type="Sprite" parent="Node"]
+position = Vector2( -150, -260 )
+texture = ExtResource( 5 )
+vframes = 8
+hframes = 5
+frame = 19
+
+[node name="Snappers" type="Label" parent="Node"]
+margin_left = -111.315
+margin_top = -121.041
+margin_right = -51.315
+margin_bottom = -100.041
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Snappers"
@@ -114,10 +123,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Vine_Bats" type="Label" parent="Node/VBoxContainer/HBoxContainer2"]
-margin_left = 64.0
-margin_right = 130.0
-margin_bottom = 21.0
+[node name="Vine_Bats" type="Label" parent="Node"]
+margin_left = -120.085
+margin_top = -64.1593
+margin_right = -54.0854
+margin_bottom = -43.1593
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Vine Bats"
@@ -125,22 +135,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="Node"]
-margin_left = -15.5672
-margin_top = 32.332
-margin_right = -3.56723
-margin_bottom = 52.332
+[node name="VBoxContainer" type="VBoxContainer" parent="Node"]
+margin_left = -50.0
+margin_top = 170.0
+margin_right = 50.0
+margin_bottom = 228.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Node/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 27.0
 custom_fonts/font = ExtResource( 4 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Reset" type="Button" parent="Node"]
-margin_left = -19.7584
-margin_top = 61.0715
-margin_right = 32.2416
-margin_bottom = 88.0715
+[node name="Reset" type="Button" parent="Node/VBoxContainer"]
+margin_top = 31.0
+margin_right = 100.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 4 )
 text = "Reset"
 __meta__ = {
@@ -149,5 +165,5 @@ __meta__ = {
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Stats" to="." method="_on_Stats_pressed"]
-[connection signal="pressed" from="Node/Back" to="." method="_on_Back_pressed"]
-[connection signal="pressed" from="Node/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="Node/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Node/VBoxContainer/Reset" to="." method="_on_Reset_pressed"]
