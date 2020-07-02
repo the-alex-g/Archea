@@ -128,7 +128,12 @@ position = Vector2( -70, 70 )
 position = Vector2( 665, 1085 )
 
 [node name="VineBat2" parent="Permanents" instance=ExtResource( 9 )]
-position = Vector2( -35, 0 )
+position = Vector2( -385, 1120 )
+
+[node name="VineBat3" parent="Permanents" instance=ExtResource( 9 )]
+position = Vector2( -910, 525 )
+
+[node name="VineBat4" parent="Permanents" instance=ExtResource( 9 )]
 
 [node name="Working" type="Node2D" parent="."]
 position = Vector2( -105, 70 )

@@ -44,6 +44,7 @@ script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -310.108, 469.58 )
+scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 
