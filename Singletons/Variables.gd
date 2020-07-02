@@ -6,6 +6,7 @@ var score : int = 0
 var player_damage : int = 10
 var max_health : int = 100
 var level : int = 1
+var between:bool = false
 
 func loadval():
 	var save_game := File.new()
@@ -26,7 +27,8 @@ func reset():
 		"score":0,
 		"player_damage":10,
 		"max_health":100,
-		"level":1
+		"level":1,
+		"between":between
 	}
 	save_game.store_line(to_json(data))
 	save_game.close()

@@ -5,7 +5,6 @@ onready var _music : AudioStreamPlayer = $Music
 onready var _door : Area2D = $Level_Door
 onready var _backgroundcolor : AnimationPlayer = $ParallaxBackground/ColorRect/AnimationPlayer
 onready var _fogcolor : AnimationPlayer = $Fog/AnimationPlayer
-var _between : bool = false
 var _not_first : bool = false
 var _last : Node = null
 
@@ -40,9 +39,9 @@ func _load_level():
 	var _level : PackedScene
 	if _not_first == true:
 		_last.queue_free()
-	if not _between:
+	if not Variables.between:
 		_level = load("res://Levels/Level" + str(Variables.level) + ".tscn")
-	if _between:
+	else:
 		_level = load("res://Levels/In_between.tscn")
 	var _Level : Node = _level.instance()
 	_last = _Level
@@ -55,8 +54,8 @@ func _load_level():
 	_door.position = _exit.global_position
 
 func _on_Level_Door_entered():
-	_between = !_between
-	if not _between:
+	Variables.between = !Variables.between
+	if not Variables.between:
 		Variables.level += 1
 	_load_level()
 
