@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "VineBat",
+"language": "GDScript",
+"path": "res://Enemies/Vine_Bat.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Ammo": "",
 "Enemy": "",
-"Player": ""
+"Player": "",
+"VineBat": ""
 }
 
 [application]

@@ -43,15 +43,6 @@ tile_data = PoolIntArray( 983017, 0, 3, 983018, 0, 5, 983029, 0, 3, 983030, 0, 3
 
 [node name="Permanents" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( 231.004, 744.822 )
-
-[node name="Enemy2" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -316.948, 462.792 )
-
-[node name="RangedEnemy" parent="Permanents" instance=ExtResource( 4 )]
-position = Vector2( 670.539, 457.841 )
-
 [node name="Door" parent="Permanents" instance=ExtResource( 5 )]
 position = Vector2( -280, 735 )
 
@@ -73,65 +64,11 @@ position = Vector2( 315, 1050 )
 [node name="Door7" parent="Permanents" instance=ExtResource( 5 )]
 position = Vector2( 280, 630 )
 
-[node name="Guytrap" parent="Permanents" instance=ExtResource( 6 )]
-position = Vector2( 448.525, 1067.27 )
-
-[node name="RangedEnemy2" parent="Permanents" instance=ExtResource( 4 )]
-position = Vector2( -123.819, 1061.08 )
-
-[node name="ShroomMan" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -905.424, 1340.56 )
-
-[node name="ShroomMan3" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -721.644, 955.378 )
-
-[node name="ShroomMan4" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -708.008, 848.237 )
-
-[node name="ShroomMan2" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -447.258, 1340.93 )
-
-[node name="RangedEnemy3" parent="Permanents" instance=ExtResource( 4 )]
-position = Vector2( -858.29, 848.301 )
-
-[node name="RangedEnemy4" parent="Permanents" instance=ExtResource( 4 )]
-position = Vector2( -665, 1341.1 )
-
 [node name="Door8" parent="Permanents" instance=ExtResource( 5 )]
 position = Vector2( 35, 1330 )
 
-[node name="ShroomMan5" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -636.021, 955.544 )
-
-[node name="ShroomMan6" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -1054.45, 1235.08 )
-
-[node name="Guytrap2" parent="Permanents" instance=ExtResource( 6 )]
-position = Vector2( -41.4655, 1063.84 )
-
-[node name="ShroomMan7" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -71.6841, 465.946 )
-
-[node name="ShroomMan8" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -553.023, 1234.36 )
-
-[node name="ShroomMan9" parent="Permanents" instance=ExtResource( 3 )]
-position = Vector2( -324.225, 1234.36 )
-
-[node name="RangedEnemy5" parent="Permanents" instance=ExtResource( 4 )]
-position = Vector2( -635.045, 468.105 )
-
 [node name="GoldShrub" parent="Permanents" instance=ExtResource( 2 )]
 position = Vector2( -70, 70 )
-
-[node name="VineBat" parent="Permanents" instance=ExtResource( 9 )]
-position = Vector2( 665, 1085 )
-
-[node name="VineBat2" parent="Permanents" instance=ExtResource( 9 )]
-position = Vector2( -385, 1120 )
-
-[node name="VineBat3" parent="Permanents" instance=ExtResource( 9 )]
-position = Vector2( -910, 525 )
 
 [node name="Working" type="Node2D" parent="."]
 position = Vector2( -105, 70 )
@@ -141,3 +78,68 @@ position = Vector2( -1050, 70 )
 
 [node name="Exit" type="Position2D" parent="."]
 position = Vector2( -634.259, 1018.92 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="VineBat" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 665, 1085 )
+
+[node name="VineBat2" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( -385, 1120 )
+
+[node name="VineBat3" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( -910, 525 )
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 231.004, 744.822 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -316.948, 462.792 )
+
+[node name="RangedEnemy" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 670.539, 457.841 )
+
+[node name="Guytrap" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 448.525, 1067.27 )
+
+[node name="RangedEnemy2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -123.819, 1061.08 )
+
+[node name="ShroomMan" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -905.424, 1340.56 )
+
+[node name="ShroomMan3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -721.644, 955.378 )
+
+[node name="ShroomMan4" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -708.008, 848.237 )
+
+[node name="ShroomMan2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -447.258, 1340.93 )
+
+[node name="RangedEnemy3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -858.29, 848.301 )
+
+[node name="RangedEnemy4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -665, 1341.1 )
+
+[node name="ShroomMan5" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -636.021, 955.544 )
+
+[node name="ShroomMan6" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -1054.45, 1235.08 )
+
+[node name="Guytrap2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -41.4655, 1063.84 )
+
+[node name="ShroomMan7" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -71.6841, 465.946 )
+
+[node name="ShroomMan8" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -553.023, 1234.36 )
+
+[node name="ShroomMan9" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -324.225, 1234.36 )
+
+[node name="RangedEnemy5" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -635.045, 468.105 )
