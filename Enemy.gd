@@ -83,11 +83,9 @@ func _fade_out():
 	var _error2 = fadeout.start()
 
 func _fade_finished():
-	randomize()
 	var _Value  = rand_range(1,3)
 	_Value = int(round(_Value))
 	for _x in range(0,_Value):
-		randomize()
 		var dropped = money.instance()
 		dropped.position = get_global_transform().origin
 		var cell = rand_range(1,100)

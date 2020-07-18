@@ -8,6 +8,7 @@ onready var Stats:Button = $VBoxContainer/Stats
 onready var Back:Button = $Node/VBoxContainer/Back
 
 func _ready():
+	randomize()
 	$ParallaxBackground/ColorRect/AnimationPlayer.play("Fade")
 	_set_disabled(false)
 

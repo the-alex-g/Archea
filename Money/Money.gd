@@ -7,7 +7,6 @@ onready var _areacollison : CollisionShape2D = $Area2D/CollisionShape2D
 var cell : bool
 
 func _ready():
-	randomize()
 	apply_impulse(Vector2(0,0), Vector2(rand_range(-100,100),rand_range(100,200)))
 	if cell == true:
 		_animatior.play("Leaf")

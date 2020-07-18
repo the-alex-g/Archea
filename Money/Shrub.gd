@@ -9,11 +9,9 @@ var _money : PackedScene= load("res://Money/Money.tscn")
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("swing") or Input.is_action_just_pressed("select") or Input.is_action_just_pressed("ranged_attack"):
 		if _colliding:
-			randomize()
 			var _Value  = rand_range(3,5)
 			_Value = int(round(_Value))
 			for _x in range(0,_Value):
-				randomize()
 				var _dropped = _money.instance()
 				_dropped.position = position
 				var _cell = rand_range(1,100)
