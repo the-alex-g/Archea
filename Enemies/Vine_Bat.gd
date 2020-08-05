@@ -18,7 +18,7 @@ var speed:int = 200
 var _velocity:Vector2 = Vector2(0,0)
 var target:Node = null
 var dir:Vector2 = Vector2(0,0)
-var is_flying:bool = false
+var is_tracking:bool = false
 var dir_x:float = 0.0
 var dir_y:float = 0.0
 
@@ -29,11 +29,11 @@ func _ready():
 	_healthbar.max_value = health
 
 func _physics_process(delta):
-	if is_flying:
+	if is_tracking:
 		state = State.FLYING
 		dir = Vector2(dir_x, dir_y)
-		#_dirtimer.start(1)
-		is_flying = false
+		_dirtimer.start(1)
+		is_tracking = false
 	if state == State.FLYING:
 		if dir.length_squared() > 500:
 			_velocity = dir.normalized()*speed*delta
@@ -130,7 +130,7 @@ func save():
 		"damage":damage,
 		"health":health,
 		"state":state,
-		"is_flying":true if state == State.FLYING else false,
+		"is_tracking":true if state == State.FLYING else false,
 		"dir_x":0 if target == null else target.get_global_transform().origin.x,
 		"dir_y":0 if target == null else target.get_global_transform().origin.y
 	}

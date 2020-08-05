@@ -77,6 +77,10 @@ func load_game():
 				continue
 			new_object.set(i, node_data[i])
 	save_game.close()
+	var follow = get_tree().get_nodes_in_group("Follow")
+	for node in follow:
+		if node.is_tracking == true:
+			node.target = _player
 
 func _on_HUD_save_game():
 	Variables.save_game()

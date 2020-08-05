@@ -72,6 +72,7 @@ tracks/0/keys = {
 }
 
 [node name="VineBat" type="KinematicBody2D" groups=[
+"Follow",
 "Persist",
 ]]
 collision_layer = 8
