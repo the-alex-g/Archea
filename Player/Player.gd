@@ -82,8 +82,8 @@ func _physics_process(_delta):
 	_velocity = move_and_slide(
 		_velocity, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 	)
+	sprite.scale.x = get_direction().x if get_direction().x != 0 else sprite.scale.x
 	if _velocity.x != 0:
-		sprite.scale.x = 1 if _velocity.x > 0 else -1
 		if is_on_platform and dodging == false:
 			state = State.WALKING
 	elif _velocity.x == 0:
