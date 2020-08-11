@@ -74,9 +74,10 @@ func _physics_process(_delta):
 			_attack = ""
 			swinging = false
 	if Input.is_action_just_released("jump"):
-		is_jumping = true
-		yield(get_tree().create_timer(0.25), 'timeout')
-		is_jumping = false
+		if is_jumping == false:
+			is_jumping = true
+			yield(get_tree().create_timer(0.25), 'timeout')
+			is_jumping = false
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jumping)
 	var is_on_platform = detector.is_colliding()
 	_velocity = move_and_slide(

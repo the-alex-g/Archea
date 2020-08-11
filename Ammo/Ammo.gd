@@ -5,7 +5,7 @@ var left : bool = false
 var good : bool
 var damage : int = 0
 
-func _physics_process(_delta):
+func _process(_delta):
 	if left == false:
 		position.x += 5
 	else:

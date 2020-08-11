@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Enemies/Ranged.gd" type="Script" id=1]
 [ext_resource path="res://Art/Enemies.png" type="Texture" id=2]
@@ -56,7 +56,22 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "Shoot"
+resource_name = "Resurrect"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 17, 16, 15, 8 ]
+}
+
+[sub_resource type="Animation" id=10]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -71,8 +86,7 @@ tracks/0/keys = {
 "values": [ 14, 8 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Walk"
+[sub_resource type="Animation" id=11]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -105,7 +119,7 @@ position = Vector2( -1.14708, -1.56158 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 5
-frame = 8
+frame = 9
 
 [node name="Right" type="RayCast2D" parent="."]
 position = Vector2( 14.887, 0 )
@@ -175,8 +189,9 @@ shape = SubResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Die = SubResource( 7 )
 anims/Idle = SubResource( 8 )
-anims/Shoot = SubResource( 9 )
-anims/Walk = SubResource( 10 )
+anims/Resurrect = SubResource( 9 )
+anims/Shoot = SubResource( 10 )
+anims/Walk = SubResource( 11 )
 
 [node name="Tween" type="Tween" parent="."]
 

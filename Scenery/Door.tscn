@@ -7,14 +7,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Open",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Open",
 "speed": 5.0
 } ]
 
@@ -28,8 +28,8 @@ extents = Vector2( 17.5, 35 )
 "Persist",
 ]]
 z_index = -1
-collision_layer = 82
-collision_mask = 82
+collision_layer = 2147484242
+collision_mask = 594
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

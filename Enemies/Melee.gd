@@ -6,6 +6,8 @@ onready var _arm : Area2D = $Arm
 onready var _timer :Timer = $Timer
 
 func _ready():
+	if state == State.RESURRECT:
+		_arm.hide()
 	health = int(round((Variables.max_health/10.0)*4))
 	damage = Variables.player_damage
 	type = "Shambler"
@@ -55,3 +57,7 @@ func _on_ShroomMan_dead():
 	var steve = get_node_or_null("Arm")
 	if steve != null:
 		_arm.queue_free()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Resurrect":
+		_arm.show()

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=2]
+[ext_resource path="res://themes/Scenery.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Black_Spirit.tscn" type="PackedScene" id=5]
+
+[node name="Level3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 836
+collision_mask = 836
+format = 1
+tile_data = PoolIntArray( 65520, 0, 65538, 65521, 0, 65538, 65522, 0, 65538, 65523, 0, 65538, 65524, 0, 65538, 65525, 0, 65538, 65526, 0, 65538, 65527, 0, 65538, 65528, 0, 65538, 65529, 0, 65538, 65530, 0, 65538, 65531, 0, 65538, 65532, 0, 65538, 65533, 0, 65538, 65534, 0, 65538, 65535, 0, 65538, 0, 0, 65538, 1, 0, 65538, 2, 0, 65538, 3, 0, 65538, 4, 0, 65538, 5, 0, 65538, 6, 0, 65538, 7, 0, 65538, 131056, 0, 65538, 196592, 0, 65538, 262128, 0, 65538, 327664, 0, 65538, 393200, 0, 65538, 458732, 0, 5, 458733, 0, 5, 458734, 0, 5, 458735, 0, 65538, 458736, 0, 65538, 524268, 0, 5, 589804, 0, 5, 655340, 0, 5, 655341, 0, 1, 655342, 0, 1, 655343, 0, 1, 655344, 0, 1, 655345, 1, 0, 655346, 1, 0, 655347, 1, 0, 655348, 1, 0, 655349, 1, 0, 655350, 1, 0, 655351, 1, 0, 655352, 1, 0, 655353, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 1, 589834, 0, 1, 589835, 0, 2, 589836, 0, 2 )
+
+[node name="JumpThrough" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 836
+collision_mask = 836
+format = 1
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 655369, 0, 1, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 851977, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0 )
+
+[node name="Exit" type="Position2D" parent="."]
+position = Vector2( -175, -105 )
+
+[node name="Start" type="Position2D" parent="."]
+position = Vector2( -630, 280 )
+
+[node name="Black_Spirit" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 280 )
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+position = Vector2( -560, 280 )
