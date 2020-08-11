@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Money/Shrub.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/Melee.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Enemies/Black_Spirit.tscn" type="PackedScene" id=10]
 
 [node name="Level2" type="Node2D"]
 z_index = -1
@@ -35,8 +34,8 @@ tile_data = PoolIntArray( 458733, 0, 5, 458734, 0, 5, 458735, 0, 5, 458736, 0, 5
 [node name="JumpThrough" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 35, 35 )
-collision_layer = 578
-collision_mask = 770
+collision_layer = 580
+collision_mask = 772
 format = 1
 tile_data = PoolIntArray( 655346, 0, 3, 655347, 0, 4, 589825, 0, 5, 589826, 0, 4, 1048559, 0, 3, 1048560, 0, 4, 983044, 0, 4, 983045, 0, 5, 1245145, 0, 4, 1245146, 0, 3, 1310724, 0, 3, 1310725, 0, 4, 1441753, 0, 3, 1441754, 0, 3, 1638361, 0, 3, 1638362, 0, 4, 1834969, 0, 4, 1834970, 0, 3, 1769478, 0, 3, 1769479, 0, 5, 1769480, 0, 3, 1769481, 0, 4, 2031577, 0, 3, 2031578, 0, 3, 2228185, 0, 3, 2228186, 0, 4, 2424793, 0, 4, 2424794, 0, 3, 2490371, 0, 4, 2490372, 0, 5, 2490373, 0, 3, 2621401, 0, 3, 2621402, 0, 3, 2818009, 0, 3, 2818010, 0, 4, 3014617, 0, 4, 3014618, 0, 3, 3080200, 0, 4, 3080201, 0, 5, 3211225, 0, 0, 3211226, 0, 2, 3407875, 0, 0, 3407876, 0, 0 )
 
@@ -146,6 +145,3 @@ position = Vector2( -210, 1610 )
 
 [node name="Door2" parent="Permanents" instance=ExtResource( 8 )]
 position = Vector2( 210, 1890 )
-
-[node name="Black_Spirit" parent="." instance=ExtResource( 10 )]
-position = Vector2( 280, 1624 )

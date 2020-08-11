@@ -13,11 +13,11 @@ func _process(_delta):
 	update()
 
 func _on_Ammo_body_entered(body):
-	if body.is_in_group("Player") and not good:
+	if body is Player and not good:
 		if body.dodging == false:
 			body.hit(damage)
 			queue_free()
-	elif body.is_in_group("Enemies") and good:
+	elif body is Enemy and good:
 		body.hit(damage)
 		queue_free()
 

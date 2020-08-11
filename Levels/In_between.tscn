@@ -27,8 +27,8 @@ tile_data = PoolIntArray( 458745, 0, 5, 458746, 0, 5, 458747, 0, 5, 458748, 0, 5
 [node name="JumpThrough" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 35, 35 )
-collision_layer = 834
-collision_mask = 834
+collision_layer = 836
+collision_mask = 836
 format = 1
 tile_data = PoolIntArray( 589826, 0, 4, 589827, 0, 3, 589828, 0, 0, 589829, 1, 0 )
 
