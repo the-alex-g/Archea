@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Ammo/Spore.png" type="Texture" id=1]
 [ext_resource path="res://Ammo/Ammo.gd" type="Script" id=2]
@@ -6,18 +6,71 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.91454
 
+[sub_resource type="Animation" id=2]
+resource_name = "Black_Magic"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Magic"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Spore"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [node name="Ammo" type="Area2D"]
-collision_layer = 56
-collision_mask = 56
+collision_layer = 58
+collision_mask = 58
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Black_Magic = SubResource( 2 )
+anims/Magic = SubResource( 3 )
+anims/Spore = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_Ammo_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

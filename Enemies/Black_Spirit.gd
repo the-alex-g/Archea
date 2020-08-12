@@ -45,6 +45,7 @@ func _physics_process(_delta):
 				_Magic.good = false
 				_Magic.position = stafftip.global_position
 				_Magic.damage = 5
+				_Magic.black_magic = true
 				if sprite.scale.x == 1:
 					_Magic.left = false
 				else:
@@ -147,6 +148,7 @@ func hit(damage_taken):
 		if health <= 0:
 			state = State.DEAD
 			queue_free()
+			Variables.killed_enemy("Corrupted_Spirit")
 			emit_signal("dead")
 
 func _new_anim(_velocity):

@@ -9,6 +9,7 @@ var _not_first : bool = false
 var _last : Node = null
 
 func _ready():
+	reset()
 	Variables.loadval()
 	_backgroundcolor.play("Fade")
 	_music.play()

@@ -40,6 +40,7 @@ func generate_stats():
 	$Node/Shamblers.text = "Shamblers Killed: "+(str(Variables.get_value("Shambler")))
 	$Node/Snappers.text = "Snappers Killed: "+(str(Variables.get_value("Snapper")))
 	$Node/Vine_Bats.text = "Vine Bats Killed: "+(str(Variables.get_value("Vine_Bat")))
+	$Node/Corrupted_Spirit.text = "Corrupted Spirits Killed: "+str(Variables.get_value("Corrupted_Spirit"))
 
 func _set_disabled(boolean:bool):
 	Quit.disabled = boolean
@@ -59,4 +60,5 @@ func _on_Reset_pressed():
 	Variables.set_value("Shambler", 0)
 	Variables.set_value("Snapper", 0)
 	Variables.set_value("Vine_Bat", 0)
+	Variables.set_value("Corrupted_Spirit", 0)
 	generate_stats()

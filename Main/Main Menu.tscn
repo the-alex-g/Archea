@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://themes/Buttons/ButtonHovered.tres" type="StyleBox" id=6]
 [ext_resource path="res://themes/Buttons/ButtonNormal.tres" type="StyleBox" id=7]
 [ext_resource path="res://themes/Buttons/ButtonPressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://Art/Black_Spirit.png" type="Texture" id=9]
 
 [node name="MainMenu" type="Node"]
 pause_mode = 2
@@ -76,30 +77,6 @@ __meta__ = {
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 
-[node name="Spitters" type="Label" parent="Node"]
-margin_left = -132.965
-margin_top = -194.295
-margin_right = 0.0352478
-margin_bottom = -173.295
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Spitters"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shamblers" type="Label" parent="Node"]
-margin_left = -129.869
-margin_top = -265.823
-margin_right = -58.8687
-margin_bottom = -244.823
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Shamblers"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite2" type="Sprite" parent="Node"]
 position = Vector2( -150, -190 )
 texture = ExtResource( 5 )
@@ -127,6 +104,12 @@ vframes = 8
 hframes = 5
 frame = 19
 
+[node name="Black_Spirit" type="Sprite" parent="Node"]
+position = Vector2( -150, 10 )
+texture = ExtResource( 9 )
+vframes = 6
+hframes = 4
+
 [node name="Snappers" type="Label" parent="Node"]
 margin_left = -111.315
 margin_top = -121.041
@@ -135,6 +118,42 @@ margin_bottom = -100.041
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Snappers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Corrupted_Spirit" type="Label" parent="Node"]
+margin_left = -112.729
+margin_top = 1.99561
+margin_right = -52.7292
+margin_bottom = 22.9956
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Corrupted Spirit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spitters" type="Label" parent="Node"]
+margin_left = -132.965
+margin_top = -194.295
+margin_right = 0.0352478
+margin_bottom = -173.295
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Spitters"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shamblers" type="Label" parent="Node"]
+margin_left = -129.869
+margin_top = -265.823
+margin_right = -58.8687
+margin_bottom = -244.823
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Shamblers"
 __meta__ = {
 "_edit_use_anchors_": false
 }

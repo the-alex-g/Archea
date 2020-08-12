@@ -38,7 +38,7 @@ func _physics_process(_delta):
 			dodgable = false
 			undodge()
 			state = State.IDLE
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("DropThrough"):
 		if detector.is_colliding():
 			var thing_hit = detector.get_collider()
 			if thing_hit.name == "JumpThrough":

@@ -1,9 +1,19 @@
 class_name Ammo
 extends Area2D
 
+onready var animation = $AnimationPlayer
 var left : bool = false
 var good : bool
+var black_magic := false
 var damage : int = 0
+
+func _ready():
+	if good:
+		animation.play("Magic")
+	elif not black_magic and not good:
+		animation.play("Spore")
+	else:
+		animation.play("Black_Magic")
 
 func _process(_delta):
 	if left == false:
@@ -17,7 +27,7 @@ func _on_Ammo_body_entered(body):
 		if body.dodging == false:
 			body.hit(damage)
 			queue_free()
-	elif body is Enemy and good:
+	elif body is Enemy and good or body is Black_Spirit and good or body is VineBat and good:
 		body.hit(damage)
 		queue_free()
 

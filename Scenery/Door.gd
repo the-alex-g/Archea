@@ -1,3 +1,4 @@
+class_name Door
 extends StaticBody2D
 
 onready var sprite : AnimatedSprite = $AnimatedSprite
