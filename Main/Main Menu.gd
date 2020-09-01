@@ -6,6 +6,7 @@ onready var Quit:Button = $VBoxContainer/Quit
 onready var Play:Button = $VBoxContainer/Play
 onready var Stats:Button = $VBoxContainer/Stats
 onready var Back:Button = $Node/VBoxContainer/Back
+onready var TutorialButton:Button = $VBoxContainer/Tutorial
 
 func _ready():
 	randomize()
@@ -44,6 +45,7 @@ func generate_stats():
 
 func _set_disabled(boolean:bool):
 	Quit.disabled = boolean
+	TutorialButton.disabled = boolean
 	$Node.visible = boolean
 	Play.disabled = boolean
 	Stats.disabled = boolean
@@ -62,3 +64,6 @@ func _on_Reset_pressed():
 	Variables.set_value("Vine_Bat", 0)
 	Variables.set_value("Corrupted_Spirit", 0)
 	generate_stats()
+
+func _on_Tutorial_pressed():
+	var _error = get_tree().change_scene("res://Levels/Tutorial.tscn")

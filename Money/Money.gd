@@ -4,7 +4,7 @@ onready var _animatior : AnimationPlayer = $AnimationPlayer
 onready var _ding : AudioStreamPlayer = $AudioStreamPlayer
 onready var _collision : CollisionShape2D = $CollisionShape2D
 onready var _areacollison : CollisionShape2D = $Area2D/CollisionShape2D
-var cell : bool
+export var cell : bool
 
 func _ready():
 	apply_impulse(Vector2(0,0), Vector2(rand_range(-100,100),rand_range(100,200)))

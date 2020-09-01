@@ -1,0 +1,385 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://themes/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://themes/Jumpthrough.tres" type="TileSet" id=4]
+[ext_resource path="res://Enemies/Ranged.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Main/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://themes/Scenery.tres" type="TileSet" id=7]
+[ext_resource path="res://Levels/Instrux.gd" type="Script" id=8]
+[ext_resource path="res://Levels/Ranged.gd" type="Script" id=9]
+[ext_resource path="res://Money/Shrub.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Art/Banners/Banners.png" type="Texture" id=11]
+[ext_resource path="res://Money/TutorialShrub.gd" type="Script" id=12]
+[ext_resource path="res://Music/SFX/Pickup.wav" type="AudioStream" id=13]
+[ext_resource path="res://Art/Money/Coin.png" type="Texture" id=14]
+[ext_resource path="res://Money/Money.gd" type="Script" id=15]
+[ext_resource path="res://Scenery/Level_Door.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenery/TutorialLevel_Door.gd" type="Script" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 52.5, 35 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 35 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 3.64215
+
+[sub_resource type="Animation" id=4]
+resource_name = "Coin"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.38419e-07, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Leaf"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.38419e-07, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 4.94199
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 322
+collision_mask = 322
+format = 1
+tile_data = PoolIntArray( 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 65536, 0, 5, 65545, 0, 5, 131072, 0, 5, 131081, 0, 5, 196608, 0, 65537, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 3, 196616, 0, 4, 196617, 0, 5, 262148, 0, 5, 262153, 0, 5, 262154, 0, 5, 262155, 0, 5, 262156, 0, 5, 262157, 0, 5, 262158, 0, 5, 262159, 0, 5, 262160, 0, 5, 262161, 0, 5, 262162, 0, 5, 262163, 0, 5, 262164, 0, 5, 262165, 0, 5, 262166, 0, 5, 262167, 0, 5, 262168, 0, 5, 262169, 0, 5, 262170, 0, 5, 262171, 0, 5, 327684, 0, 5, 327689, 0, 5, 327707, 0, 5, 393220, 0, 5, 393225, 0, 5, 393243, 0, 5, 458756, 0, 5, 458764, 0, 1, 458765, 0, 1, 458766, 0, 1, 458767, 0, 1, 458768, 0, 1, 458769, 0, 1, 458770, 0, 1, 458771, 0, 2, 458772, 0, 2, 458773, 0, 2, 458774, 0, 2, 458775, 0, 3, 458778, 0, 4, 458779, 0, 5, 524292, 0, 5, 524300, 0, 5, 524310, 0, 5, 524315, 0, 5, 589828, 0, 65537, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 65536, 589846, 0, 5, 589851, 0, 5, 655382, 0, 5, 655387, 0, 5, 720900, 0, 5, 720901, 0, 5, 720902, 0, 5, 720903, 0, 5, 720904, 0, 5, 720905, 0, 5, 720906, 0, 5, 720907, 0, 5, 720908, 0, 5, 720909, 0, 5, 720910, 0, 5, 720911, 0, 5, 720912, 0, 5, 720913, 0, 5, 720914, 0, 5, 720915, 0, 5, 720916, 0, 5, 720917, 0, 5, 720918, 0, 65536, 720923, 0, 5, 786436, 0, 5, 786459, 0, 5, 851972, 0, 5, 851995, 0, 5, 917508, 0, 65537, 917509, 0, 1, 917510, 0, 1, 917511, 0, 1, 917512, 0, 1, 917513, 0, 1, 917514, 0, 1, 917515, 0, 1, 917516, 0, 1, 917517, 0, 1, 917518, 0, 1, 917519, 0, 1, 917520, 0, 1, 917521, 0, 1, 917522, 0, 1, 917523, 0, 1, 917524, 0, 1, 917525, 0, 1, 917526, 0, 1, 917527, 0, 1, 917528, 0, 1, 917529, 0, 1, 917530, 0, 1, 917531, 0, 65536 )
+
+[node name="JumpThrough" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 324
+collision_mask = 324
+format = 1
+tile_data = PoolIntArray( 196614, 0, 3, 196615, 0, 4, 458776, 0, 5, 458777, 0, 4 )
+
+[node name="Scenery" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 35, 35 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 655369, 0, 1, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 851977, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 70, 70 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="RangedEnemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 455, 210 )
+
+[node name="Instrux" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux"]
+position = Vector2( 245, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux"]
+margin_left = 140.0
+margin_top = 35.0
+margin_right = 458.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Down Arrow to
+ drop through thin tiles"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux2" type="Area2D" parent="."]
+position = Vector2( 140, 210 )
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux2"]
+position = Vector2( 245, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux2"]
+margin_left = 175.0
+margin_top = 35.0
+margin_right = 493.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Space to jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux3" type="Area2D" parent="."]
+position = Vector2( 245, 140 )
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux3"]
+position = Vector2( 245, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux3"]
+margin_left = 175.0
+margin_top = 35.0
+margin_right = 493.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Control to dodge
+and Shift to attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux4" type="Area2D" parent="."]
+position = Vector2( 665, 385 )
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux4"]
+position = Vector2( 192.5, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux4"]
+margin_left = 105.0
+margin_top = 35.0
+margin_right = 423.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Enter to get Golden
+ Leaves from Shrubs."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux7" type="Area2D" parent="."]
+position = Vector2( 35, 385 )
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux7"]
+position = Vector2( 192.5, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux7"]
+margin_left = 105.0
+margin_right = 423.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Enter to go
+ to the next level!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux5" type="Area2D" parent="."]
+position = Vector2( 385, 385 )
+z_index = 5
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux5"]
+position = Vector2( 175, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux5"]
+margin_left = 70.0
+margin_right = 441.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press Enter to buy upgrades at banners. Once 
+you've bought Ranged Attacks, press S to shoot."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrux6" type="Area2D" parent="."]
+position = Vector2( 210, 385 )
+z_index = 5
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instrux6"]
+position = Vector2( 175, 70 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Instrux6"]
+margin_left = 105.0
+margin_right = 423.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Green Leaves give 
+you a stat boost!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shrub" parent="." instance=ExtResource( 10 )]
+position = Vector2( 840, 455 )
+script = ExtResource( 12 )
+
+[node name="Ranged" type="Area2D" parent="."]
+position = Vector2( 525, 175 )
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranged"]
+position = Vector2( 35, 280 )
+shape = SubResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Ranged"]
+position = Vector2( 35, 280 )
+texture = ExtResource( 11 )
+hframes = 3
+frame = 2
+
+[node name="Label" type="Label" parent="Ranged"]
+margin_left = 12.0972
+margin_top = 247.645
+margin_right = 64.0972
+margin_bottom = 316.645
+rect_scale = Vector2( 0.920002, 0.84 )
+custom_fonts/font = ExtResource( 1 )
+text = "ranged
+attacks
+for 25"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pickup" type="RigidBody2D" parent="."]
+position = Vector2( 385, 490 )
+z_index = 1
+collision_layer = 384
+collision_mask = 384
+script = ExtResource( 15 )
+cell = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Pickup"]
+texture = ExtResource( 14 )
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pickup"]
+anims/Coin = SubResource( 4 )
+anims/Leaf = SubResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="Pickup"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup/Area2D"]
+shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pickup"]
+stream = ExtResource( 13 )
+
+[node name="Level_Door" parent="." instance=ExtResource( 16 )]
+position = Vector2( 175, 420 )
+script = ExtResource( 17 )
+[connection signal="body_entered" from="Instrux" to="Instrux" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux" to="Instrux" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux2" to="Instrux2" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux2" to="Instrux2" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux3" to="Instrux3" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux3" to="Instrux3" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux4" to="Instrux4" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux4" to="Instrux4" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux7" to="Instrux7" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux7" to="Instrux7" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux5" to="Instrux5" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux5" to="Instrux5" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Instrux6" to="Instrux6" method="_on_Instrux_body_entered"]
+[connection signal="body_exited" from="Instrux6" to="Instrux6" method="_on_Instrux_body_exited"]
+[connection signal="body_entered" from="Ranged" to="Ranged" method="_on_Ranged_body_entered"]
+[connection signal="body_exited" from="Ranged" to="Ranged" method="_on_Ranged_body_exited"]
+[connection signal="body_entered" from="Pickup/Area2D" to="Pickup" method="_on_Area2D_body_entered"]
