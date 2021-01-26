@@ -7,6 +7,8 @@ onready var _backgroundcolor : AnimationPlayer = $ParallaxBackground/ColorRect/A
 onready var _fogcolor : AnimationPlayer = $Fog/AnimationPlayer
 var _not_first : bool = false
 var _last : Node = null
+signal game_over(won)
+signal next_level
 
 func _ready():
 	reset()
@@ -22,11 +24,6 @@ func _ready():
 			load_game()
 		save_game.close()
 	_fogcolor.play("Fog_Color")
-
-func _on_Player_dead():
-	get_tree().paused = true
-	reset()
-	var _error = get_tree().change_scene("res://Main/Main Menu.tscn")
 
 func reset():
 	Variables.reset()
@@ -45,6 +42,8 @@ func _load_level():
 	else:
 		_level = load("res://Levels/In_between.tscn")
 	var _Level : Node = _level.instance()
+	if Variables.level == 3:
+		var _error = _Level.get_node("Black_Spirit").connect("dead", self, "game_over")
 	_last = _Level
 	var _start = _Level.get_node("Start")
 	var _exit = _Level.get_node("Exit")
@@ -58,7 +57,12 @@ func _on_Level_Door_entered():
 	Variables.between = !Variables.between
 	if not Variables.between:
 		Variables.level += 1
+	_player.invincible = true
+	emit_signal("next_level")
+	yield(get_tree().create_timer(1), "timeout")
 	_load_level()
+	yield(get_tree().create_timer(1), "timeout")
+	_player.invincible = false
 
 func load_game():
 	var save_game := File.new()
@@ -100,3 +104,9 @@ func save_game():
 		save_game.store_line(to_json(node_data))
 	save_game.close()
 	var _error2 = get_tree().change_scene("res://Main/Main Menu.tscn")
+
+
+func game_over(won:bool):
+	get_tree().paused = true
+	reset()
+	emit_signal("game_over", won)

@@ -23,7 +23,7 @@ var dropping : bool = false
 var is_shooting := false
 var can_shoot := true
 var is_jumping
-signal dead
+signal dead(won)
 const FLOOR_DETECT_DISTANCE = 20.0
 
 func _ready():
@@ -149,7 +149,7 @@ func hit(damage_taken):
 			state = State.DEAD
 			queue_free()
 			Variables.killed_enemy("Corrupted_Spirit")
-			emit_signal("dead")
+			emit_signal("dead", true)
 
 func _new_anim(_velocity):
 	var next : String = ""

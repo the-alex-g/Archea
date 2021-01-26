@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://themes/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://themes/GroundTiles.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Money/Money.gd" type="Script" id=15]
 [ext_resource path="res://Scenery/Level_Door.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenery/TutorialLevel_Door.gd" type="Script" id=17]
+[ext_resource path="res://Scenery/Background.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.5, 35 )
@@ -366,6 +367,8 @@ stream = ExtResource( 13 )
 [node name="Level_Door" parent="." instance=ExtResource( 16 )]
 position = Vector2( 175, 420 )
 script = ExtResource( 17 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 18 )]
 [connection signal="body_entered" from="Instrux" to="Instrux" method="_on_Instrux_body_entered"]
 [connection signal="body_exited" from="Instrux" to="Instrux" method="_on_Instrux_body_exited"]
 [connection signal="body_entered" from="Instrux2" to="Instrux2" method="_on_Instrux_body_entered"]

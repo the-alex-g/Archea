@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
-length = 100.0
+length = 200.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -15,10 +15,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20, 40, 60, 80, 100 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 20, 40, 60, 80, 100, 140.8, 180.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.729412, 0, 0, 1 ), Color( 0.729412, 0.360784, 0, 1 ), Color( 0.972549, 1, 0, 1 ), Color( 0.729412, 0.360784, 0, 1 ), Color( 0.729412, 0, 0, 1 ), Color( 0.188235, 0, 0, 1 ) ]
+"values": [ Color( 0.729412, 0, 0, 1 ), Color( 0.729412, 0.360784, 0, 1 ), Color( 0.972549, 1, 0, 1 ), Color( 0.729412, 0.360784, 0, 1 ), Color( 0.729412, 0, 0, 1 ), Color( 0.188235, 0, 0, 1 ), Color( 0, 0.00392157, 0.188235, 1 ), Color( 0.188235, 0, 0, 1 ) ]
 }
 
 [sub_resource type="TileSet" id=2]
@@ -106,7 +106,7 @@ tracks/0/keys = {
 margin_left = -3386.0
 margin_right = 6538.0
 margin_bottom = 2390.0
-color = Color( 0.729412, 0.140706, 0, 1 )
+color = Color( 0, 0.00392157, 0.188235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +115,7 @@ __meta__ = {
 anims/Fade = SubResource( 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 2, 1.1 )
+motion_scale = Vector2( 0.8, 0.8 )
 
 [node name="TileMap" type="TileMap" parent="ParallaxLayer"]
 modulate = Color( 0.741176, 0.741176, 0.741176, 1 )

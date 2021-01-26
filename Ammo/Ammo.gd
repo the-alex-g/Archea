@@ -30,6 +30,8 @@ func _on_Ammo_body_entered(body):
 	elif body is Enemy and good or body is Black_Spirit and good or body is VineBat and good:
 		body.hit(damage)
 		queue_free()
+	elif body is TileMap:
+		queue_free()
 
 func _on_Timer_timeout():
 	queue_free()

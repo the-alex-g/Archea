@@ -13,9 +13,10 @@ var swinging : bool = false
 var state = State.IDLE
 var _attack : String = ""
 var dodgable : bool = true
+var invincible := false
 var dodging : bool = false
 var dropping : bool = false
-signal dead
+signal dead(won)
 const FLOOR_DETECT_DISTANCE = 20.0
 
 func _ready():
@@ -139,14 +140,13 @@ func _reset_collision():
 	detector.set_collision_mask_bit(2,true)
 
 func hit(damage_taken):
-	if dodging == false:
+	if dodging == false and not invincible:
 		Variables.health -= damage_taken
 		if Variables.health <= 0:
 			state = State.DEAD
 			hide()
 			get_tree().paused = true
-			yield(get_tree().create_timer(1), "timeout")
-			emit_signal("dead")
+			emit_signal("dead", false)
 
 func _new_anim(_velocity):
 	var next : String = ""

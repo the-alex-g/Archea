@@ -8,14 +8,15 @@ onready var _score : Label = $Visibility/VBoxContainer/Score
 onready var _money : Label = $Money
 onready var _health : Label = $Visibility/VBoxContainer/Health
 onready var _damage : Label = $Visibility/VBoxContainer/Damage
+onready var _blackout := $ColorRect
 signal save_game
 var _visible : bool = false
 var _disabled : bool = true
 
 func _ready():
+	_blackout.color = Color(0,0,0,0)
 	_healthbar.value = Variables.health
 	_set_pause_menu()
-	
 
 func _process(_delta):
 	_money.text = str(Variables.score)
@@ -41,6 +42,26 @@ func _set_pause_menu():
 	_main_button.disabled = _disabled
 	_resume.disabled = _disabled
 
-
 func _on_Main_pressed():
 	emit_signal("save_game")
+
+func _next_level():
+	$Tween.interpolate_property(_blackout, "color", Color(0,0,0,0), Color(0,0,0,1), 1)
+	$Tween.start()
+	yield(get_tree().create_timer(1), "timeout")
+	$Tween.interpolate_property(_blackout, "color", Color(0,0,0,1), Color(0,0,0,0), 1)
+	$Tween.start()
+
+func game_over(won:bool):
+	_visibility.hide()
+	$Control.hide()
+	$Money.hide()
+	$Tween.interpolate_property(_blackout, "color", Color(0,0,0,0), Color(0,0,0,1), 1)
+	$Tween.start()
+	yield(get_tree().create_timer(0.5), "timeout")
+	match won:
+		true:
+			$Label.text = "You have cleansed the forest of the blight"
+		false:
+			$Label.text = "You have been stopped... For a time"
+	$Label.visible = true
