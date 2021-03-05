@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var _healthbar : ProgressBar = $Control/ProgressBar
+onready var _healthbar  := $TextureProgress
 onready var _visibility : Node2D = $Visibility
 onready var _resume : Button = $Visibility/VBoxContainer/Resume
 onready var _main_button : Button = $Visibility/VBoxContainer/Main
@@ -16,6 +16,7 @@ var _disabled : bool = true
 func _ready():
 	_blackout.color = Color(0,0,0,0)
 	_healthbar.value = Variables.health
+	_healthbar.max_value = Variables.max_health
 	_set_pause_menu()
 
 func _process(_delta):
@@ -54,7 +55,7 @@ func _next_level():
 
 func game_over(won:bool):
 	_visibility.hide()
-	$Control.hide()
+	_healthbar.hide()
 	$Money.hide()
 	$Tween.interpolate_property(_blackout, "color", Color(0,0,0,0), Color(0,0,0,1), 1)
 	$Tween.start()
